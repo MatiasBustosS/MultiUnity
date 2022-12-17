@@ -1870,6 +1870,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: mapa_84
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d480e23144dae74ea7c531c62d275bf
+      internalID: -242667200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapa_85
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8470d4d51df3c9649b8c9a4595bca553
+      internalID: 1838576693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1883,87 +1925,89 @@ TextureImporter:
     nameFileIdTable:
       mapa_45: -341955626
       mapa_1: -904452340
-      mapa_20: 1599418689
-      mapa_32: -432895521
-      mapa_58: -512662427
       mapa_39: -1711122826
-      mapa_60: -783241774
-      mapa_71: -1112495192
-      mapa_11: 778278429
-      mapa_30: -1408439446
       mapa_22: -1826192065
-      mapa_8: -520920873
       mapa_13: 1808064858
-      mapa_31: -424995786
-      mapa_81: -1885735150
       mapa_42: -985968120
-      mapa_15: -1251192046
+      mapa_81: -1885735150
       mapa_72: -792752254
       mapa_12: -166707320
       mapa_67: -136436295
-      mapa_83: -211002569
-      mapa_79: 2102301596
       mapa_51: -1246772361
-      mapa_27: -1453915032
       mapa_35: -2023075253
       mapa_54: 2072844576
       mapa_62: 1721002410
       mapa_36: 1661719839
-      mapa_74: 1218923081
-      mapa_16: -1196479567
-      mapa_76: 1862850709
       mapa_26: -760122264
-      mapa_65: -1399131491
-      mapa_34: 2038134859
-      mapa_43: 1271823704
-      mapa_68: -1465799702
       mapa_3: 55675887
       mapa_14: 460265091
       mapa_52: 752253739
       mapa_19: -1442737609
-      mapa_61: 1337005233
       mapa_75: 732615584
-      mapa_4: 1304272992
       mapa_50: 1152141881
       mapa_37: 1212849815
       mapa_17: -740067904
-      mapa_77: -1596051382
-      mapa_55: -397621152
-      mapa_10: -1613831862
+      mapa_85: 1838576693
       mapa_78: 678277564
       mapa_24: 1163296560
       mapa_53: 1799211265
-      mapa_82: -1803580295
       mapa_2: -1412880147
-      mapa_9: -710780205
       mapa_44: 1549538858
-      mapa_47: -1015338472
       mapa_56: -1390144438
-      mapa_5: 280756851
       mapa_33: 1740016738
-      mapa_18: -759375260
-      mapa_25: 231744099
       mapa_21: 822958239
-      mapa_63: 2091879112
-      mapa_48: 1837922876
       mapa_0: -1847695286
-      mapa_38: 1491514536
-      mapa_66: -389873685
-      mapa_73: -998763253
       mapa_46: 1291627740
+      mapa_84: -242667200
       mapa_40: 2143068075
-      mapa_59: 964641983
       mapa_23: 613871544
       mapa_69: 62522834
+      mapa_64: 1618907802
+      mapa_20: 1599418689
+      mapa_32: -432895521
+      mapa_58: -512662427
+      mapa_60: -783241774
+      mapa_71: -1112495192
+      mapa_11: 778278429
+      mapa_30: -1408439446
+      mapa_8: -520920873
+      mapa_31: -424995786
+      mapa_15: -1251192046
+      mapa_79: 2102301596
+      mapa_83: -211002569
+      mapa_27: -1453915032
+      mapa_74: 1218923081
+      mapa_16: -1196479567
+      mapa_76: 1862850709
+      mapa_65: -1399131491
+      mapa_34: 2038134859
+      mapa_43: 1271823704
+      mapa_68: -1465799702
+      mapa_61: 1337005233
+      mapa_4: 1304272992
+      mapa_55: -397621152
+      mapa_77: -1596051382
+      mapa_10: -1613831862
+      mapa_82: -1803580295
+      mapa_9: -710780205
+      mapa_47: -1015338472
+      mapa_5: 280756851
+      mapa_70: -1866703071
+      mapa_18: -759375260
+      mapa_25: 231744099
+      mapa_63: 2091879112
+      mapa_48: 1837922876
+      mapa_66: -389873685
+      mapa_38: 1491514536
+      mapa_73: -998763253
+      mapa_59: 964641983
       mapa_41: 1500950410
       mapa_49: 20268020
       mapa_28: 1360367164
       mapa_6: -1675827046
-      mapa_70: -1866703071
       mapa_80: -14112519
       mapa_7: 309826758
       mapa_29: -1673210510
-      mapa_64: 1618907802
       mapa_57: -1294534318
   spritePackingTag: 
   pSDRemoveMatte: 0
