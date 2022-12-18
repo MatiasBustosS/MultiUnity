@@ -1,0 +1,3820 @@
+fileFormatVersion: 2
+guid: 8d345b97f56d5a7489dcd37830b62cad
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Predefinido 2_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 937c4b4f33a485548955ab4c95285ac1
+      internalID: 652633175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5b38fa04989104cafbae93315506a5
+      internalID: 1375443892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 109e78b48de2fb94d8b06c94aeb80784
+      internalID: 1466062150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_3
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8ecce03806c52940ad93e82a1e21cd9
+      internalID: -567247200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_4
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547d0d8a8461f2e42a1a1d80b90f8a8f
+      internalID: -2056664400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_5
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4fb330ded6a684a96b4bc813ab4b98
+      internalID: -22655724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_6
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b219c463081c4942a9201317915915e
+      internalID: 1187476885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_7
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e15bd09bc37a5c40b2213b653cfe5f9
+      internalID: -106589018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_8
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5e0613265136a84c98dfdc56f2acee9
+      internalID: -111468128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_9
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9391866955cea14abe22d3c1b1b6d79
+      internalID: 1262162473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_10
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f9d8215ceb52a428e1c4392fe89fc7
+      internalID: 1876414148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_11
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf824c73667b6e043a5a57a5d8ff4d4a
+      internalID: -153204480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_12
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea34782a39cc0964484d0243891871fc
+      internalID: 1096251609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_13
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80b81e83900cc743a68ce7e01bf134f
+      internalID: -402562064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_14
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8815fd6e7351749baac2a56f804e58
+      internalID: -152306488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_15
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f06fcf870a5810f41bc8576f89836041
+      internalID: -1528193370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_16
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e928be7154be94b885344ba406965f
+      internalID: 1610528090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_17
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10190d222c8ff4243b59a216f3d32238
+      internalID: -1587634609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_18
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b922fa622cfd65489ae1deb3b44697f
+      internalID: 1786464912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_19
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 336
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef397cfe2521c5743b6747a4ef4b8c92
+      internalID: -1359593003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_20
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbf6c3dc6b0c8af4287a0780812f0a7f
+      internalID: 1394938495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_21
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fdeeb48e2b7984d817647d008d4e82
+      internalID: -1873969017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_22
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e904b64c3c1a5fb469f317111060a482
+      internalID: -662887510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_23
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b463d8a6874d734f970251f500f1f4e
+      internalID: 330022461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_24
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ed44a3073b3d7f429b4d57143bee523
+      internalID: -1535102247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_25
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23449564c01328340b07582973cd2c8d
+      internalID: 806181457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_26
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9895c61ba4b434781e9cfa7f79f903
+      internalID: -1003748967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_27
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8321d71310f4c754f9afd747fdaf4d16
+      internalID: 1309017997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_28
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eead4f162cd5a3848907faa4e8a2a919
+      internalID: -632725982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_29
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006e09ddf41a69b43b3c5e2dc030c861
+      internalID: -68439172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_30
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a694df8c8d1e4f04d91bedd9c69a9b9f
+      internalID: -545255729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_31
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbcee0f8f51f8a2479dea313ef01233a
+      internalID: -2050822091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_32
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e4490cb8dd0f6d4aa535a9125ebb925
+      internalID: -685053451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_33
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ef77d82428e0c4bbe00c6868c14f15
+      internalID: -299478887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_34
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a01bc46364dce342aea666a3f7bfd0f
+      internalID: 993923883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_35
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7aeefb9f506064baf9cc025e66d2c0
+      internalID: 1285474297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_36
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52efd675b9291a946b56824162ba3f6c
+      internalID: -913010670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_37
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66df0a733330f8c48b5a9026ae17959c
+      internalID: -347610073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_38
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e414c27c784e604f92490dc67d056ff
+      internalID: -331512588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_39
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c8a67c389a64e4a8e892876a0102f6
+      internalID: -845022391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_40
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a84645fc09d7f4699d4e361e54f2fb
+      internalID: 507212127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_41
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 288
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a093500beb131de48b868011e84cd9d3
+      internalID: -1406266966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_42
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1522c53202dab88469cd33949084827f
+      internalID: 1947583690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_43
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4c582b5270fd542bc09e2f749abde5
+      internalID: 161313242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_44
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da073de3248c10e45a060ab7dbf52ee6
+      internalID: 2143373087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_45
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a2539066aed734abff24595bd47dc0
+      internalID: 549921850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_46
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb1722f1d1bc03409c7510c13275ef7
+      internalID: 101953149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_47
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f9519ed02424d447ae83896402ebe05
+      internalID: -1658568382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_48
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3bb06689c0cf674c862f8bd881782a6
+      internalID: -1807417749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_49
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020d4c3f47aa6654da08db227481cca4
+      internalID: -514689646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_50
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed354c38e688e5a429c5813b42b937bc
+      internalID: 722269430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_51
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54e633ee94db954286b8be4ec011bd9
+      internalID: 133812001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_52
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a9e24479887ad45b6fcfa2b1afb953
+      internalID: -345399596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_53
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 291a6f71e2cd48d49843dde5a1477395
+      internalID: 961017923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_54
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4886fd6370e45424fbda03d0772ef8b5
+      internalID: 48505471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_55
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c42c387efb8084a47b4186557679f303
+      internalID: 1379794199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_56
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8069e589cad335e438dc6e8916781582
+      internalID: 1970627818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_57
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 911305930433788498dd36d4c3d80144
+      internalID: -250048492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_58
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d92447dcf91e8f94b8e9d2029aab5cab
+      internalID: 899245512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_59
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a8ef8c54b772484f8409a9ddf2b561d
+      internalID: 300582898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_60
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6c079c55b3c5bf40b8f3597a1382113
+      internalID: -611860207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_61
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a22bbe14b67082a49ba4fcf5b71b5129
+      internalID: -1065876121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_62
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19422d6e33bbce44a84a30de7f56921f
+      internalID: -1775524837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_63
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 240
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24265e5d23916f24db1c5e5cdf36b47b
+      internalID: -374360820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_64
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b69131100d1504e91b6c59a80e7dad
+      internalID: 322630841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_65
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c95b12a4fc62ac64096765d1065f7b26
+      internalID: -1993421813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_66
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4975ccc65aea774494fc12717bd77ac
+      internalID: -528404470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_67
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03c549419f755a741bc038c7d04ffcfe
+      internalID: -576312071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_68
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 795225bcd6b25184dab9c677e19985db
+      internalID: -1800718247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_69
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8189c8d1ccef44387273ded702430f
+      internalID: -1141709132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_70
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fecb5f08372d349bf3e32e49d705a9
+      internalID: -2014936575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_71
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ae4c0b70229a645a7f5a7176a34eb3
+      internalID: 1675353657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_72
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225d4737878b5da44997479a25b59edd
+      internalID: 66019236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_73
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7921258e532071442ba54fee9849cc9c
+      internalID: 900872749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_74
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4870676d351d6ed458e9051493ac20ca
+      internalID: -1735322977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_75
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1f5e27452d7274d934df5849f665f0
+      internalID: 1038844254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_76
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e4f2c5930bf9648b76dad9d5204143
+      internalID: -1827223389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_77
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408180312d5d8f14aa6aa2beb8e05694
+      internalID: 1937537471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_78
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c887956f044734baef22c5631e31df
+      internalID: 1718510854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_79
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39607868ec2cf2943b871688fb0da94b
+      internalID: 713090657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_80
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9fff5233f2604d489ab5ff95dbcd8b1
+      internalID: 898105434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_81
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3b4bd84ee312a468c2f8f3230f3534
+      internalID: 1621677809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_82
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e600a12f421dc0e4895b7eeea99a8dbe
+      internalID: -1555973648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_83
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f68a680ee13d774084ab81f73b6a8e6
+      internalID: 358225174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_84
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a36d9236a6b53944a8c39f0dca66f0b4
+      internalID: 185797158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_85
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 192
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad95f299cde8d714495276b0f44a2ec6
+      internalID: 1579413301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_86
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac67d1a0fb8ca349921062cf176b931
+      internalID: 264225003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_87
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56cd579d8bdc7b54685f97954ac6c0f6
+      internalID: 1438203203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_88
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92b1718b41db8a4499d6e9258e89392
+      internalID: -762581608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_89
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1bb04a738f004c40a5e3857f74c843e
+      internalID: 913440358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_90
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623f502d494abba4bb85cfc82bc9ae1c
+      internalID: -1920201017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_91
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa64b2ef6125e64b91154b9b278ff55
+      internalID: 1599234869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_92
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54b5375330df5e478188b45602bee5b
+      internalID: -1342116350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_93
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98d9116f022f8dc42bbdcbb1d9ab9cda
+      internalID: 1629427738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_94
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ceb8f3e5910c040b1601a5a1f15e58
+      internalID: -263961527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_95
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635240cb53400094c9d5f6909e49240a
+      internalID: 1444772766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_96
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea415e98b014cd43b0fb45ec6467970
+      internalID: -1302885823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_97
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1588ad58bcc30974fb9f047f316ce761
+      internalID: 1322022398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_98
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32106cff44d7f4445b29b7c53223baab
+      internalID: 2112143817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_99
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac45ec716522fba4fbd0847b4201e63b
+      internalID: 653591771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_100
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831b465f10a8a5741a957e7878571229
+      internalID: 430155347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_101
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5741a86803ca6ae408f746ff0c26b6d5
+      internalID: 1367481257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_102
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f64e4f1e69af5e40981aad9b0e83647
+      internalID: 106998603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_103
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc78b7952bf76ca4687c667a2574685c
+      internalID: -712122367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_104
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 144
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f3f63daa362254dad8f660ba2c2b2e
+      internalID: 94929780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_105
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485e11840b196a14b876f0bce3020362
+      internalID: 309360909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_106
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878a5faddb0c9374a95b00025ab42006
+      internalID: 2083500314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_107
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929f81b39a76c554c8a922c2083be005
+      internalID: -102990080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_108
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f96c5525b18ed4fbf24dda54382498
+      internalID: -1141184668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_109
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730abd782baf1a745ab50df66a6534a0
+      internalID: -992273882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_110
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a605596a9a2772343b6db51402228293
+      internalID: -1346968468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_111
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d180d3f677e681409029ee3a12cd4cd
+      internalID: -210711947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_112
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489d77beab50e8d4a95db8908701baea
+      internalID: 2097115204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_113
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df72d20c78dad814c940c29a4fa03e12
+      internalID: 1547206374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_114
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875d6e41c5bf3ae4d95d2c021878529f
+      internalID: -1051802924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_115
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ab19fc0f76e1dc4ea63079176b2375f
+      internalID: -421931386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_116
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c210ea34a2d26ce4e8e92a5d645ea2dc
+      internalID: 273771030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_117
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7606544f2ba3a8445aafe84b0f6fdc7e
+      internalID: -1498278176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_118
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e863069a3cd64f846bbec86e7aacba55
+      internalID: 1907277244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_119
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8a425a3a1c42a48b0877d02c27a2db
+      internalID: -1656587154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_120
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ee84911f22cbda47881ae1a1c160083
+      internalID: 32944461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_121
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded91fb14c0add646a2d1288ad85ec98
+      internalID: 1424388825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_122
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3c82111eeefe74dad0c26ecff0cafe
+      internalID: 1799893870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_123
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8ec75f7af5ade41a2a2d443e8e85ad
+      internalID: 1420823803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_124
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9623df5ae9572394991aadae4a5829d1
+      internalID: 1922025082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_125
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70c9ebfd4ed678942964b36aaf2cf53e
+      internalID: 1196475351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_126
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 96
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f522f0546b45de4abd51842e4455a13
+      internalID: -1707106126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_127
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6f99f38541043a40833e5077a75e58b
+      internalID: -718033812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_128
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d4fdd3fc6e95944daf0ddcc1023d164
+      internalID: -160759444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_129
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a21fe90db489b40af808e5cdedcef9
+      internalID: 1585788419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_130
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a00965c90529de0419f53c74d85258e2
+      internalID: 1003404786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_131
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c2f57055ec87f41a5a34044bc67f52
+      internalID: 1540605304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_132
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1730d98648c91e04683c83ce6583d915
+      internalID: 1601394897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_133
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33924cf7c68acec4ca2fd7a544770e74
+      internalID: -1952116173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_134
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f8203a891393714cb0d8fbac9ae954c
+      internalID: -1118501768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_135
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0221790485375cf4e872e1f3247de5fa
+      internalID: -713944484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_136
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011d3a548e385d346a7b2a52faed5894
+      internalID: -1533750071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_137
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe1176a2e46a91438ad03526dd2cbe1
+      internalID: 36796487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_138
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891c66f8eebbfbe46859211588d0e708
+      internalID: -2143175056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_139
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb69f106414b624796313e227d3fe7f
+      internalID: 614032518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_140
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90c2741a9ce627944a848717fb2194e1
+      internalID: 1374701111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_141
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c817fff0e5c8c35458984e5120b30863
+      internalID: 1698819537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_142
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 646c6423a57b4c2458ce8e5346565da2
+      internalID: 113932457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_143
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b112cb85a6d77c4dbd139b4c4601fb4
+      internalID: 313787157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_144
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53c346567c859484798b87b9ef448317
+      internalID: -306346837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_145
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e55cff8df155d7447a826a0e32a48dc8
+      internalID: 1114460569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_146
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4cb8f45bf8a9e4cbbcd55e639b892a
+      internalID: 1061862453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_147
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fdcdfcf2c10a60468c752d51032319a
+      internalID: -1454120996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_148
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 48
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dab9f716a740de46be004565a1c5627
+      internalID: 1893571193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_149
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40dfd78902fb89246979ac08cdcf79ae
+      internalID: 1455249078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_150
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e051242fc569c140ada0070d92b749d
+      internalID: 1587179215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_151
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 073816e850ca244428914c4d5c06475a
+      internalID: 1218479314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_152
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094b90cffd4b78f40a2703dcf7935440
+      internalID: -487746824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_153
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15bc6c30aedf0e449028e6074572a38
+      internalID: -1669638399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_154
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724b160867fc6c64d870b0baff16ac78
+      internalID: 2086850475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_155
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e94450d2407104494f39efadb13004
+      internalID: 858076622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_156
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4404115220d93e49b23bbabbd4140b0
+      internalID: -83353947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_157
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4870ab4d0d866c4fb41a25edd653704
+      internalID: 732487922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_158
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cde2357c345f3bd4080a4a455fecbf20
+      internalID: -1200396238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_159
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92634aa3b6488cb45890f73341fc8c03
+      internalID: -1642538093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_160
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb192d003650c064bb97f4e4bc103bb3
+      internalID: 314100708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_161
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede26b3f3507cfa42ad9ded41eacd34a
+      internalID: 1971143926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_162
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff204f10046ca54da765f30341ea0c4
+      internalID: 1906257106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_163
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59bfeebb914c12147942d97c2c53c20c
+      internalID: -923602767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_164
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b3f3725a040fe849b24495dfb620edf
+      internalID: 2118731548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_165
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510266c5a39321a419cc6e38708fe5c2
+      internalID: 1673484449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_166
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b78af4a814d3b74092f318e292a933c
+      internalID: -1829296224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Predefinido 2_167
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 0
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7b7e9c5e69f9d4aa64cf9459eb3b09
+      internalID: 353437277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1b645e0a6443da54f9a45237823cc177
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Predefinido 2_52: -345399596
+      Predefinido 2_81: 1621677809
+      Predefinido 2_79: 713090657
+      Predefinido 2_89: 913440358
+      Predefinido 2_149: 1455249078
+      Predefinido 2_156: -83353947
+      Predefinido 2_13: -402562064
+      Predefinido 2_82: -1555973648
+      Predefinido 2_57: -250048492
+      Predefinido 2_88: -762581608
+      Predefinido 2_125: 1196475351
+      Predefinido 2_80: 898105434
+      Predefinido 2_19: -1359593003
+      Predefinido 2_60: -611860207
+      Predefinido 2_111: -210711947
+      Predefinido 2_155: 858076622
+      Predefinido 2_34: 993923883
+      Predefinido 2_66: -528404470
+      Predefinido 2_110: -1346968468
+      Predefinido 2_151: 1218479314
+      Predefinido 2_77: 1937537471
+      Predefinido 2_62: -1775524837
+      Predefinido 2_63: -374360820
+      Predefinido 2_53: 961017923
+      Predefinido 2_144: -306346837
+      Predefinido 2_158: -1200396238
+      Predefinido 2_107: -102990080
+      Predefinido 2_139: 614032518
+      Predefinido 2_106: 2083500314
+      Predefinido 2_126: -1707106126
+      Predefinido 2_103: -712122367
+      Predefinido 2_16: 1610528090
+      Predefinido 2_166: -1829296224
+      Predefinido 2_30: -545255729
+      Predefinido 2_78: 1718510854
+      Predefinido 2_101: 1367481257
+      Predefinido 2_48: -1807417749
+      Predefinido 2_146: 1061862453
+      Predefinido 2_58: 899245512
+      Predefinido 2_112: 2097115204
+      Predefinido 2_25: 806181457
+      Predefinido 2_27: 1309017997
+      Predefinido 2_35: 1285474297
+      Predefinido 2_10: 1876414148
+      Predefinido 2_9: 1262162473
+      Predefinido 2_118: 1907277244
+      Predefinido 2_105: 309360909
+      Predefinido 2_55: 1379794199
+      Predefinido 2_87: 1438203203
+      Predefinido 2_17: -1587634609
+      Predefinido 2_12: 1096251609
+      Predefinido 2_94: -263961527
+      Predefinido 2_102: 106998603
+      Predefinido 2_115: -421931386
+      Predefinido 2_128: -160759444
+      Predefinido 2_167: 353437277
+      Predefinido 2_59: 300582898
+      Predefinido 2_109: -992273882
+      Predefinido 2_157: 732487922
+      Predefinido 2_129: 1585788419
+      Predefinido 2_154: 2086850475
+      Predefinido 2_133: -1952116173
+      Predefinido 2_72: 66019236
+      Predefinido 2_86: 264225003
+      Predefinido 2_127: -718033812
+      Predefinido 2_49: -514689646
+      Predefinido 2_74: -1735322977
+      Predefinido 2_29: -68439172
+      Predefinido 2_116: 273771030
+      Predefinido 2_141: 1698819537
+      Predefinido 2_45: 549921850
+      Predefinido 2_38: -331512588
+      Predefinido 2_160: 314100708
+      Predefinido 2_90: -1920201017
+      Predefinido 2_153: -1669638399
+      Predefinido 2_162: 1906257106
+      Predefinido 2_26: -1003748967
+      Predefinido 2_131: 1540605304
+      Predefinido 2_163: -923602767
+      Predefinido 2_136: -1533750071
+      Predefinido 2_164: 2118731548
+      Predefinido 2_132: 1601394897
+      Predefinido 2_33: -299478887
+      Predefinido 2_22: -662887510
+      Predefinido 2_73: 900872749
+      Predefinido 2_21: -1873969017
+      Predefinido 2_100: 430155347
+      Predefinido 2_68: -1800718247
+      Predefinido 2_134: -1118501768
+      Predefinido 2_83: 358225174
+      Predefinido 2_123: 1420823803
+      Predefinido 2_143: 313787157
+      Predefinido 2_71: 1675353657
+      Predefinido 2_130: 1003404786
+      Predefinido 2_140: 1374701111
+      Predefinido 2_41: -1406266966
+      Predefinido 2_32: -685053451
+      Predefinido 2_31: -2050822091
+      Predefinido 2_95: 1444772766
+      Predefinido 2_0: 652633175
+      Predefinido 2_1: 1375443892
+      Predefinido 2_84: 185797158
+      Predefinido 2_15: -1528193370
+      Predefinido 2_96: -1302885823
+      Predefinido 2_99: 653591771
+      Predefinido 2_69: -1141709132
+      Predefinido 2_44: 2143373087
+      Predefinido 2_56: 1970627818
+      Predefinido 2_120: 32944461
+      Predefinido 2_11: -153204480
+      Predefinido 2_92: -1342116350
+      Predefinido 2_40: 507212127
+      Predefinido 2_70: -2014936575
+      Predefinido 2_64: 322630841
+      Predefinido 2_85: 1579413301
+      Predefinido 2_150: 1587179215
+      Predefinido 2_119: -1656587154
+      Predefinido 2_75: 1038844254
+      Predefinido 2_8: -111468128
+      Predefinido 2_152: -487746824
+      Predefinido 2_117: -1498278176
+      Predefinido 2_91: 1599234869
+      Predefinido 2_161: 1971143926
+      Predefinido 2_97: 1322022398
+      Predefinido 2_20: 1394938495
+      Predefinido 2_93: 1629427738
+      Predefinido 2_142: 113932457
+      Predefinido 2_61: -1065876121
+      Predefinido 2_159: -1642538093
+      Predefinido 2_39: -845022391
+      Predefinido 2_3: -567247200
+      Predefinido 2_113: 1547206374
+      Predefinido 2_36: -913010670
+      Predefinido 2_165: 1673484449
+      Predefinido 2_24: -1535102247
+      Predefinido 2_104: 94929780
+      Predefinido 2_145: 1114460569
+      Predefinido 2_122: 1799893870
+      Predefinido 2_28: -632725982
+      Predefinido 2_4: -2056664400
+      Predefinido 2_43: 161313242
+      Predefinido 2_147: -1454120996
+      Predefinido 2_14: -152306488
+      Predefinido 2_124: 1922025082
+      Predefinido 2_37: -347610073
+      Predefinido 2_65: -1993421813
+      Predefinido 2_148: 1893571193
+      Predefinido 2_50: 722269430
+      Predefinido 2_67: -576312071
+      Predefinido 2_135: -713944484
+      Predefinido 2_121: 1424388825
+      Predefinido 2_54: 48505471
+      Predefinido 2_114: -1051802924
+      Predefinido 2_23: 330022461
+      Predefinido 2_51: 133812001
+      Predefinido 2_98: 2112143817
+      Predefinido 2_108: -1141184668
+      Predefinido 2_7: -106589018
+      Predefinido 2_42: 1947583690
+      Predefinido 2_5: -22655724
+      Predefinido 2_2: 1466062150
+      Predefinido 2_47: -1658568382
+      Predefinido 2_76: -1827223389
+      Predefinido 2_137: 36796487
+      Predefinido 2_18: 1786464912
+      Predefinido 2_46: 101953149
+      Predefinido 2_138: -2143175056
+      Predefinido 2_6: 1187476885
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

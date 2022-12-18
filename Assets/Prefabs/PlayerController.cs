@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -33,10 +34,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float circleRadius = 0.65f;
 
     private Vector2 input;
+    public enum LookAt
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
+
+    public LookAt lookAt;
+
+    private Animator _animator;
+
+
+    private bool CanShot =true;
+    [SerializeField] private GameObject bullet;
     
-    [Header("Character")]
-
-
+    [Header("Character")] 
+    
     [SerializeField] private bool UltiCharge = false;
     public enum ClassType
     {
@@ -121,6 +136,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         gotoPosition = transform.position;
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -129,14 +145,48 @@ public class PlayerController : MonoBehaviour
         if (input.y == 0)
         {
             input.x = Input.GetAxisRaw("Horizontal") * DistanceToMove;
+            _animator.SetFloat("Horizontal", input.x);
+            _animator.SetFloat("Vertical", 0);
+            
+            if (input.x < 0)
+            {
+                lookAt = LookAt.Left;
+                _animator.SetFloat("LookAt", 1);
+
+            }
+            if (input.x > 0)
+            {
+                lookAt = LookAt.Right;
+                _animator.SetFloat("LookAt", 2);
+
+            }
+
         }
 
         if (input.x == 0)
         {
             input.y = Input.GetAxisRaw("Vertical") * DistanceToMove;
+            _animator.SetFloat("Vertical", input.y);
+            _animator.SetFloat("Horizontal", 0);
+            
+            if (input.y < 0)
+            {
+                lookAt = LookAt.Down;
+                _animator.SetFloat("LookAt", 0);
+
+            }
+            if (input.y > 0)
+            {
+                lookAt = LookAt.Up;
+                _animator.SetFloat("LookAt", 3);
+
+            }
+
         }
         
-
+        _animator.SetBool("Move", Moving);
+        
+        
         if (Moving)
         {
             transform.position = Vector2.MoveTowards(transform.position, gotoPosition, speed * Time.deltaTime);
@@ -158,6 +208,35 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (CanShot)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                CanShot = false;
+                var bulletAux = Instantiate(bullet,transform.position, Quaternion.identity);
+    
+                switch (lookAt)
+                {
+                    case LookAt.Down:
+                        bulletAux.GetComponent<Bullet>().direction = new Vector2(0,-1);
+                        break;
+                    case LookAt.Up:
+                        bulletAux.GetComponent<Bullet>().direction = new Vector2(0,1);
+                        break;
+                    case LookAt.Right:
+                        bulletAux.GetComponent<Bullet>().direction = new Vector2(1,0);
+                        break;
+                    case LookAt.Left:
+                        bulletAux.GetComponent<Bullet>().direction = new Vector2(-1,0);
+                        break;
+                    
+                }
+
+                StartCoroutine(BulletTime());
+            }
+        }
+        
+
         if (UltiCharge)
         {
             if (Input.GetKey(KeyCode.Space))
@@ -167,7 +246,15 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    
+
+    IEnumerator BulletTime()
+    {
+        yield return new WaitForSeconds(1f);
+
+        CanShot = true;
+
+    }
+
     private void UltiAttack()
     {
         switch (myClass)
