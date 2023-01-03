@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class ClientHandler : MonoBehaviour
@@ -8,16 +9,19 @@ public class ClientHandler : MonoBehaviour
     public bool test = false;
     private NetworkHelper networkHelper;
 
-    int idJuego = -1;
+    // int idJuego = -1;
     public string nombre = "";
     public int equipo = -1; //0 -> azul, 1 -> rojo, -1 -> sin equipo
 
     Dictionary<int,Jugador> Jugadores = new Dictionary<int, Jugador>();
     public int compi = -1; // ID del compi
 
+    public UnityEvent CompiCambiado;
+
     private void Start()
     {
         DontDestroyOnLoad(this);
+        CompiCambiado = new UnityEvent();
     }
 
     public bool StartClient(int localPort, string remoteIP, int remotePort, string nombreJug)
@@ -36,6 +40,7 @@ public class ClientHandler : MonoBehaviour
     {
         // Le decimos al servidor como nos llamamos
         SendToServer("Nom_"+nombre);
+        
     }
 
     private void DisconnectedFromServer()
@@ -102,6 +107,7 @@ public class ClientHandler : MonoBehaviour
 
     void CambiarNombre(int idJug, string nombreJug){
         Jugadores[idJug].nombre = nombreJug;
+        if(idJug==compi) CompiCambiado.Invoke();
     }
 
     public string NombreCompi(){

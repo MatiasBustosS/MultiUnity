@@ -8,10 +8,6 @@ public class Jugador{
     public string nombre;
     public int equipo;
 }
-public class Mensaje{
-    public string tipo;
-    
-}
 
 public class ServerHandler : MonoBehaviour
 {
@@ -55,7 +51,8 @@ public class ServerHandler : MonoBehaviour
 
     private void ClientConnected(int id)
     {
-        // En cuanto se conecta un cliente, creamos el jugador y le decimos a qué equipo va
+        // En cuanto se conecta un cliente, creamos el jugador, le decimos los que ya hay y a qué equipo va
+        EnviarJugadores(id);
         CrearJugador(id,"Jugador"+id);
         PonerEquipo(id);
     }
@@ -105,8 +102,11 @@ public class ServerHandler : MonoBehaviour
         networkHelper.SendToAll(message);
     }
 
+    public 
+
     // FUNCIONES JUEGO
 
+    // Crea un jugador y notifica al resto
     void CrearJugador(int id,string nombre){
         Jugador j = new Jugador();
         j.id = id;
@@ -117,6 +117,14 @@ public class ServerHandler : MonoBehaviour
         SendToAllExcept("Jug_"+JsonUtility.ToJson(j),id);
     }
 
+    // Envia todos los jugadores actuales al id
+    void EnviarJugadores(int id){
+        foreach(Jugador j in Jugadores.Values){
+            if(j.id!=id) SendToClient(id,"Jug_"+JsonUtility.ToJson(j));
+        }
+    }
+
+    // Cambia el nombre del jugador id y avisa al resto
     void CambiarNombre(int id,string nombre){
         if(nombre!=""){
             Jugadores[id].nombre = nombre;
@@ -126,6 +134,7 @@ public class ServerHandler : MonoBehaviour
         }
     }
 
+    // Decide en qué equipo va id y notifica al jugador y a su compañero
     void PonerEquipo(int id){
         int num = -1;
         if(nAzul<=nRojo){
