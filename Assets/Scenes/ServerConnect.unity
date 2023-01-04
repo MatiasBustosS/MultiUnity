@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685bcad3baf5fa24084a9c9d18bff179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LocalPort: 0
+  LocalPort: 400
   RemoteIP: 
   NombreJugador: 
   RemotePort: 0
@@ -1351,7 +1351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee360f8f4f344a443a13fd59f994b67b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
+  empezado: 0
+  JuegoEmpezado: 0
 --- !u!1 &1852022199
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,11 +7,11 @@ public class Jugador{
     public int id;
     public string nombre;
     public int equipo;
+    public int personaje;
 }
 
 public class ServerHandler : MonoBehaviour
 {
-    public bool test = false;
     private NetworkHelper networkHelper;
 
     List<int> EquipoAzul = new List<int>();
@@ -21,6 +21,12 @@ public class ServerHandler : MonoBehaviour
 
     // Probablemente se pueda usar una lista, pero como solo van a haber 4 tampoco pasa nada
     Dictionary<int,Jugador> Jugadores = new Dictionary<int, Jugador>();
+    int nJugadores = 0;
+    int nPreparados = 0;
+    int nEscogidos = 0;
+
+    public bool empezado = false;
+    public bool JuegoEmpezado = false;
 
     private void Start()
     {
@@ -42,7 +48,7 @@ public class ServerHandler : MonoBehaviour
 
     private void ServerStarted()
     {
-        if (!test) SceneManager.LoadScene("Server");
+        
     }
 
     private void ServerStopped()
@@ -51,10 +57,13 @@ public class ServerHandler : MonoBehaviour
 
     private void ClientConnected(int id)
     {
-        // En cuanto se conecta un cliente, creamos el jugador, le decimos los que ya hay y a qué equipo va
-        EnviarJugadores(id);
-        CrearJugador(id,"Jugador"+id);
-        PonerEquipo(id);
+        if(!empezado){
+            // En cuanto se conecta un cliente, creamos el jugador, le decimos los que ya hay y a qué equipo va
+            CrearJugador(id,"Jugador"+id);
+            PonerEquipo(id);
+            EnviarJugadores(id);
+
+        }
     }
 
     private void ClientDisconnected(int arg0)
@@ -72,6 +81,14 @@ public class ServerHandler : MonoBehaviour
             switch(args[0]){
                 case "Nom": // Avisa del equipo en el que estamos
                     CambiarNombre(from,args[1]);
+                    break;
+
+                case "Prep":
+                    Preparado(from);
+                    break;
+
+                case "Pers":
+                    PonerPersonaje(from,int.Parse(args[1]));
                     break;
 
                 default:
@@ -102,8 +119,6 @@ public class ServerHandler : MonoBehaviour
         networkHelper.SendToAll(message);
     }
 
-    public 
-
     // FUNCIONES JUEGO
 
     // Crea un jugador y notifica al resto
@@ -112,9 +127,7 @@ public class ServerHandler : MonoBehaviour
         j.id = id;
         j.nombre = nombre;
         Jugadores.Add(id,j);
-
-        // Avisamos a todos del nuevo jugador (excepto a este)
-        SendToAllExcept("Jug_"+JsonUtility.ToJson(j),id);
+        nJugadores++;
     }
 
     // Envia todos los jugadores actuales al id
@@ -160,6 +173,41 @@ public class ServerHandler : MonoBehaviour
         // Avisamos al jugador de su equipo
         Jugadores[id].equipo = num;
         SendToClient(id,"Eq_"+num);
+        // Avisamos a todos del nuevo jugador (excepto a este)
+        SendToAllExcept("Jug_"+JsonUtility.ToJson(Jugadores[id]),id);
+    }
+
+    // Avisa a todos de que id está preparado y mira si hay que empezar partida
+    void Preparado(int id){
+        nPreparados++;
+        SendToAllExcept("Prep_"+id,id);
+        if(nPreparados==nJugadores){
+            EmpezarSeleccion();
+        }
+    }
+
+    // Empieza la fase de seleccion de personajes
+    void EmpezarSeleccion(){
+        empezado = true;
+        // Avisamos a todos que empieza la fase de seleccion, pero solo el primero de cada equipo puede escoger
+        SendToAll("Pers_");
+        SendToClient(1,"Esc_-1");
+        SendToClient(2,"Esc_-1");
+    }
+
+    // Pone el personaje escogido al 
+    void PonerPersonaje(int id, int pers){
+        Jugadores[id].personaje = pers;
+        if(id==1){
+            SendToClient(3,"Esc_"+pers);
+        }else if(id==2){
+            SendToClient(4,"Esc_"+pers);
+        }
+        nEscogidos++;
+        if(nEscogidos==nJugadores){
+            SendToAll("Juego_");
+            JuegoEmpezado = true;
+        }
     }
 
 }

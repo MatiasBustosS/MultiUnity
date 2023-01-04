@@ -1044,9 +1044,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LocalPort: 0
-  RemoteIP: 
+  RemoteIP: 127.0.0.1
   NombreJugador: 
-  RemotePort: 0
+  RemotePort: 400
   disableOnStart:
   - {fileID: 1998020712}
 --- !u!114 &691329107
@@ -2835,7 +2835,29 @@ MonoBehaviour:
   test: 0
   nombre: 
   equipo: -1
+  personaje: -1
+  nombreCamb: -1
+  prep: -1
   compi: -1
+  persCompi: -1
+  CompiCambiado:
+    m_PersistentCalls:
+      m_Calls: []
+  JugadorNuevo:
+    m_PersistentCalls:
+      m_Calls: []
+  JugadorPreparado:
+    m_PersistentCalls:
+      m_Calls: []
+  FaseSeleccion:
+    m_PersistentCalls:
+      m_Calls: []
+  PuedoEscoger:
+    m_PersistentCalls:
+      m_Calls: []
+  NombreCambiado:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1521467914
 Transform:
   m_ObjectHideFlags: 0

@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class ConnectController : MonoBehaviour
 {
-    public int LocalPort;
+    public int LocalPort = 400;
 
-    public string RemoteIP;
+    public string RemoteIP = "127.0.0.1";
     public string NombreJugador = "";
-    public int RemotePort;
+    public int RemotePort = 400;
 
     public Selectable[] disableOnStart;
 
