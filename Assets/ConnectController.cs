@@ -3,10 +3,11 @@ using UnityEngine.UI;
 
 public class ConnectController : MonoBehaviour
 {
-    public int LocalPort;
+    public int LocalPort = 400;
 
-    public string RemoteIP;
-    public int RemotePort;
+    public string RemoteIP = "127.0.0.1";
+    public string NombreJugador = "";
+    public int RemotePort = 400;
 
     public Selectable[] disableOnStart;
 
@@ -27,6 +28,10 @@ public class ConnectController : MonoBehaviour
         RemoteIP = server;
     }
 
+    public void NombreChanged(string nombre){
+        NombreJugador = nombre;
+    }
+
     public void StartServer()
     {
         if (FindObjectOfType<ServerHandler>().StartServer(LocalPort))
@@ -37,7 +42,7 @@ public class ConnectController : MonoBehaviour
 
     public void StartClient()
     {
-        if (FindObjectOfType<ClientHandler>().StartClient(LocalPort, RemoteIP, RemotePort))
+        if (FindObjectOfType<ClientHandler>().StartClient(LocalPort, RemoteIP, RemotePort, NombreJugador))
         {
             foreach (var obj in disableOnStart) obj.interactable = false;
         }
