@@ -95,32 +95,36 @@ public class PlayerController : MonoBehaviour
                 case ClassType.Healer:
                     
                     EditorGUI.indentLevel++;
-                    EditorGUILayout.LabelField("Heal", GUILayout.Width(150));
-                    float Heal = controller.heal;
+                    EditorGUILayout.LabelField("Heal", GUILayout.Width(130));
+                    controller.heal = EditorGUILayout.FloatField(controller.heal);
+                    //float Heal = controller.heal;
                     EditorGUI.indentLevel++;
                     
                     break;
                 case ClassType.Support:
                     
                     EditorGUI.indentLevel++;
-                    EditorGUILayout.LabelField("ObjectsToCreate", GUILayout.Width(150));
-                    int ObjectsToCreate = controller.objectsToCreate;
+                    EditorGUILayout.LabelField("ObjectsToCreate", GUILayout.Width(130));
+                    controller.objectsToCreate = EditorGUILayout.IntField(controller.objectsToCreate);
+                    //int ObjectsToCreate = controller.objectsToCreate;
                     EditorGUI.indentLevel++;
                     
                     break;
                 case ClassType.Damage :
                     
                     EditorGUI.indentLevel++;
-                    EditorGUILayout.LabelField("MaxDamage", GUILayout.Width(150));
-                    float MaxDamage = controller.MaxDamage;
+                    EditorGUILayout.LabelField("MaxDamage", GUILayout.Width(130));
+                    controller.MaxDamage = EditorGUILayout.FloatField(controller.MaxDamage);
+                    //float MaxDamage = controller.MaxDamage;
                     EditorGUI.indentLevel++;
                     
                     break;
                 case ClassType.Tank:
                     
                     EditorGUI.indentLevel++;
-                    EditorGUILayout.LabelField("TimeToBoost", GUILayout.Width(150));
-                    float TimeToBoost = controller.boostTime;
+                    EditorGUILayout.LabelField("TimeToBoost", GUILayout.Width(130));
+                    controller.boostTime = EditorGUILayout.FloatField(controller.boostTime);
+                    //float TimeToBoost = controller.boostTime;
                     EditorGUI.indentLevel++;
                     
                     break;
@@ -137,16 +141,38 @@ public class PlayerController : MonoBehaviour
     {
         gotoPosition = transform.position;
         _animator = GetComponent<Animator>();
+        
+        switch (myClass)
+        {
+            case ClassType.Healer:
+                _animator.SetInteger("Character",1);
+                break;
+            case ClassType.Damage:
+                _animator.SetInteger("Character",2);
+                break;
+            case ClassType.Tank:
+                _animator.SetInteger("Character",3);
+                break;
+            case ClassType.Support:
+                _animator.SetInteger("Character",4);
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (input.y == 0)
         {
             input.x = Input.GetAxisRaw("Horizontal") * DistanceToMove;
-            _animator.SetFloat("Horizontal", input.x);
-            _animator.SetFloat("Vertical", 0);
+            
+            if (!Moving)
+            {
+                _animator.SetFloat("Horizontal", input.x);
+                _animator.SetFloat("Vertical", 0);
+                
+            }
             
             if (input.x < 0)
             {
@@ -154,6 +180,7 @@ public class PlayerController : MonoBehaviour
                 _animator.SetFloat("LookAt", 1);
 
             }
+
             if (input.x > 0)
             {
                 lookAt = LookAt.Right;
@@ -166,9 +193,14 @@ public class PlayerController : MonoBehaviour
         if (input.x == 0)
         {
             input.y = Input.GetAxisRaw("Vertical") * DistanceToMove;
-            _animator.SetFloat("Vertical", input.y);
-            _animator.SetFloat("Horizontal", 0);
+
+            if (!Moving)
+            {
+                _animator.SetFloat("Vertical", input.y);
+                _animator.SetFloat("Horizontal", 0);
+            }
             
+
             if (input.y < 0)
             {
                 lookAt = LookAt.Down;
@@ -181,28 +213,33 @@ public class PlayerController : MonoBehaviour
                 _animator.SetFloat("LookAt", 3);
 
             }
-
         }
         
-        _animator.SetBool("Move", Moving);
         
         
         if (Moving)
         {
-            transform.position = Vector2.MoveTowards(transform.position, gotoPosition, speed * Time.deltaTime);
-
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
+            
+            
+            
             if (Vector2.Distance(transform.position, gotoPosition) == 0)
             {
                 Moving = false;
+                _animator.SetBool("Move", false);
             }
         }
 
         if ((input.x != 0 || input.y != 0) && !Moving)
         {
             Vector2 puntoEvaluar = new Vector2(transform.position.x, transform.position.y) + offsetPosition + input;
+            
+            _animator.SetFloat("Horizontal", input.x);
+            _animator.SetFloat("Vertical", input.y);
 
             if (!Physics2D.OverlapCircle(puntoEvaluar, circleRadius, obstacles))
             {
+                _animator.SetBool("Move", true);
                 Moving = true;
                 gotoPosition += input;
             }
@@ -214,7 +251,9 @@ public class PlayerController : MonoBehaviour
             {
                 CanShot = false;
                 var bulletAux = Instantiate(bullet,transform.position, Quaternion.identity);
-    
+
+                bulletAux.GetComponent<Bullet>().Player = gameObject;
+                
                 switch (lookAt)
                 {
                     case LookAt.Down:
