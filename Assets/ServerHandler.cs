@@ -207,7 +207,16 @@ public class ServerHandler : MonoBehaviour
         if(nEscogidos==nJugadores){
             SendToAll("Juego_");
             JuegoEmpezado = true;
+            SceneManager.LoadScene("MapaServer");
         }
+    }
+
+    string FormatVector(Vector3 v){
+        return v.x+","+v.y+","+v.z;
+    }
+
+    public void EnviarTile(Vector3 pos, string tile, string tilemap){
+        SendToAll("Tile_"+FormatVector(pos)+","+tile+","+tilemap);
     }
 
 }

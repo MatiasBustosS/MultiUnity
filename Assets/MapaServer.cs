@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MapaController : MonoBehaviour
+public class MapaServer : MonoBehaviour
 {
+    private ServerHandler sh = null;
     public Tilemap Objetos;
     public Tilemap Fondo;
     public Tile Caja;
@@ -38,6 +39,7 @@ public class MapaController : MonoBehaviour
 
     public void PonerTile(Vector3 pos, Tile tile, Tilemap tilemap){
         tilemap.SetTile(CalcPos(pos),tile);
+        sh.EnviarTile(pos,tile.name,tilemap.name);
     }
 
     public void EliminarTile(Vector3 pos, Tilemap tilemap){
@@ -110,14 +112,16 @@ public class MapaController : MonoBehaviour
                 SpawnearCajas(maxCajas-nCajas);
             }  
         }
-    }
-    
+    }    
 
     // Start is called before the first frame update
     void Start()
     {
+        var g = GameObject.FindWithTag("Handler");
+        sh = g.GetComponent<ServerHandler>();
         Random.InitState(System.DateTime.Now.Millisecond);
         SpawnearCajas(maxCajas);
+        // MANDAR UN OK A TODOS???
     }
 
     // Update is called once per frame

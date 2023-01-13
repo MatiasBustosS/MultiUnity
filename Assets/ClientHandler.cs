@@ -30,6 +30,11 @@ public class ClientHandler : MonoBehaviour
     public UnityEvent PuedoEscoger;
     public UnityEvent NombreCambiado;
 
+    public UnityEvent RecibirTile;
+    public string tileRecibido;
+    public string tilemapRecibido;
+    public Vector3 tilePos;
+
     private void Start()
     {
         DontDestroyOnLoad(this);
@@ -39,6 +44,7 @@ public class ClientHandler : MonoBehaviour
         FaseSeleccion = new UnityEvent();
         PuedoEscoger = new UnityEvent();
         NombreCambiado = new UnityEvent();
+        RecibirTile = new UnityEvent();
     }
 
     public bool StartClient(int localPort, string remoteIP, int remotePort, string nombreJug)
@@ -89,8 +95,12 @@ public class ClientHandler : MonoBehaviour
 
     void Mensaje(string mensaje){
         string[] args = mensaje.Split("_"); //args[0] tiene el tipo de mensaje, args[1] contenido
+            string[] args2 = args[1].Split(",");
         switch(args[0]){
-            
+            case "Tile":
+                LlegaTile(args2);
+                break;
+
             case "Juego":
                 EmpezarJuego();
                 break;
@@ -108,7 +118,6 @@ public class ClientHandler : MonoBehaviour
                 break;
 
             case "Nom": // Nos dice el nombre de un jugador
-                string[] args2 = args[1].Split(",");
                 CambiarNombre(int.Parse(args2[0]),args2[1]);
                 break;
 
@@ -127,6 +136,7 @@ public class ClientHandler : MonoBehaviour
                 break;
 
             default:
+                Debug.LogError("Mensaje no detectado");
                 break;
         }
     }
@@ -178,6 +188,18 @@ public class ClientHandler : MonoBehaviour
     }
 
     void EmpezarJuego(){
-        SceneManager.LoadScene("Mapa");
+        SceneManager.LoadScene("MapaClient");
+    }
+
+    void LlegaTile(string[] args){
+        Debug.Log(args[0]);
+        tilePos = new Vector3(float.Parse(args[0]),float.Parse(args[1]),float.Parse(args[2]));
+        tileRecibido = args[3];
+        tilemapRecibido = args[4];
+        RecibirTile.Invoke();
+    }
+
+    public void EnviarInput(){
+        SendToServer("");
     }
 }
