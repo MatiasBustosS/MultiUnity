@@ -57,7 +57,7 @@ public class MapaClient : MonoBehaviour
         //     ch.EnviarInput("Clic",worldPoint);
         // }
 
-        if(Input.GetAxisRaw("Horizontal")!=0){
+        if(Input.GetAxisRaw("Horizontal")!=0 && !Moviendose){
             ch.EnviarInput("Moverse",new Vector2(Input.GetAxisRaw("Horizontal"), 0));
             Moviendose = true;
         }else if(Input.GetAxisRaw("Vertical")!=0){
@@ -68,12 +68,18 @@ public class MapaClient : MonoBehaviour
             Moviendose = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.Mouse0)){
+        // ch.EnviarInput("Moverse", new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical")));
+
+        if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Q)){
             ch.EnviarInput("Atacar", Vector2.zero);
         }
 
         if(Input.GetKeyDown(KeyCode.Space)){
             ch.EnviarInput("Ulti", Vector2.zero);
+        }
+
+        if(Input.GetKeyDown(KeyCode.E)){
+            ch.EnviarInput("Coger", Vector2.zero);
         }
     }
 

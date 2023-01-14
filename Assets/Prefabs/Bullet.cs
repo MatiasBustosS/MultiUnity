@@ -28,11 +28,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject == Player) return;
         if (collision.gameObject.CompareTag("Player") && collision.gameObject != Player)
         {
-            collision.GetComponent<PlayerController>().Damage(_Damage);
-            Destroy(gameObject);
+            collision.GetComponent<PlayerControllerServer>().Damage(_Damage);
         }
+        Destroy(gameObject);
     }
 
     IEnumerator destroyBullet()

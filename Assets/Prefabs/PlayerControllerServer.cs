@@ -75,7 +75,9 @@ public class PlayerControllerServer : MonoBehaviour
     private float boostTime;
     private int objectsToCreate;
     private float MaxDamage;
-    
+
+    public MapaServer mapa;
+    public bool tieneBandera = false;
     
     // VALORES PROPIOS DE LOS ROLES DE CADA PERSONAJES
     #region ChangeInspector
@@ -221,22 +223,20 @@ public class PlayerControllerServer : MonoBehaviour
             }
         }
 
-
-        if (canMove)
+        if (Moving)
         {
+            transform.position = Vector3.MoveTowards(transform.position,
+                new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
 
-            if (Moving)
+            if (Vector2.Distance(transform.position, gotoPosition) == 0)
             {
-                transform.position = Vector3.MoveTowards(transform.position,
-                    new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
-
-                if (Vector2.Distance(transform.position, gotoPosition) == 0)
-                {
-                    Moving = false;
-                    _animator.SetBool("Move", false);
-                }
+                Moving = false;
+                _animator.SetBool("Move", false);
             }
+        }
 
+        if(canMove){
+        
             if ((input.x != 0 || input.y != 0) && !Moving)
             {
                 Vector2 puntoEvaluar = new Vector2(transform.position.x, transform.position.y) + offsetPosition + input;
@@ -244,14 +244,24 @@ public class PlayerControllerServer : MonoBehaviour
                 _animator.SetFloat("Horizontal", input.x);
                 _animator.SetFloat("Vertical", input.y);
 
-                if (!Physics2D.OverlapCircle(puntoEvaluar, circleRadius, obstacles))
+                if (!Physics2D.OverlapCircle(puntoEvaluar, circleRadius, obstacles) && mapa.ObtTile(puntoEvaluar,mapa.Obstaculos)==null)
                 {
                     _animator.SetBool("Move", true);
                     Moving = true;
                     gotoPosition += input;
-                }
-            }
 
+                    // Si hay ulti, se pone
+                    if(mapa.EsUlti(puntoEvaluar)){
+                        UltiCharge = true;
+                        mapa.EliminarTile(puntoEvaluar,mapa.Objetos);
+                    }
+                }
+                // else{
+                //     Moving = false;
+                //     Debug.Log("guachin te encontraste con algo");
+                // }
+            }
+        }
             // if (CanShot)
             // {
             //     if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -283,7 +293,7 @@ public class PlayerControllerServer : MonoBehaviour
             //         StartCoroutine(BulletTime());
             //     }
             // }
-        }
+        
 
         // if (UltiCharge)
         // {
@@ -374,25 +384,28 @@ public class PlayerControllerServer : MonoBehaviour
                 break;
         }
         
-        Debug.Log("asdjhbasjd   ");
-        
         Vector2 putTrap = new Vector2(transform.position.x, transform.position.y) + offsetPosition + look;
 
-        if (!Physics2D.OverlapCircle(putTrap, circleRadius, obstacles))
+        if (!Physics2D.OverlapCircle(putTrap, circleRadius, obstacles) && mapa.ObtTile(putTrap, mapa.Obstaculos)==null)
         {
             Debug.Log("Trampa Colocada");
             var _trap = Instantiate(trap, putTrap, Quaternion.identity);
+            _trap.GetComponent<TrapController>().Player = gameObject;
             _trap.GetComponent<TrapController>()._Damage = trapDamage;
         }
     }
 
-    public IEnumerator TrapEffect()
+    public IEnumerator TrapEffect(GameObject trap)
     {
         canMove = false;
         
         yield return new WaitForSeconds(2f);
 
         canMove = true;
+        if (trap)
+        {
+            Destroy(trap);
+        }
     }
 
     private IEnumerator UltiTank()
@@ -447,6 +460,19 @@ public class PlayerControllerServer : MonoBehaviour
 
             StartCoroutine(BulletTime());
             
+        }
+    }
+
+    public void Coger(){
+        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+        if(mapa.EsBandera(pos) && !tieneBandera){
+            tieneBandera = true;
+            mapa.EliminarTile(pos,mapa.Objetos);
+            mapa.BanderaAgarrada = true;
+        }else if(tieneBandera){
+            tieneBandera = false;
+            mapa.SpawnearBandera(pos);
+            mapa.BanderaAgarrada = false;
         }
     }
 

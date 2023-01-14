@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class MapaServer : MonoBehaviour
 {
     private ServerHandler sh = null;
+    public Tilemap Obstaculos;
     public Tilemap Objetos;
     public Tilemap Fondo;
     public Tile Caja;
@@ -21,7 +22,7 @@ public class MapaServer : MonoBehaviour
     int nCajas = 0;
 
     bool BanderaSpawneada = false;
-    bool BanderaAgarrada = false;
+    public bool BanderaAgarrada = false;
     Vector3 posBandera = new Vector3Int(-1000,-1000,-1000);
 
     int puntosAzul = 0;
@@ -34,9 +35,9 @@ public class MapaServer : MonoBehaviour
     // Calcula el vector resultante de poner pos en el SR de la esquina superior izquierda
     // Asume que la esquina sup izq es el primer tile muro de Muros
     private Vector3Int CalcPos(Vector3 pos){
-        // Vector3Int esquina = new Vector3Int(Objetos.origin.x,Objetos.origin.y+Objetos.size.y-1,0);
+        // Vector3Int esquina = new Vector3Int(Obstaculos.origin.x,Obstaculos.origin.y+Obstaculos.size.y-1,0);
         // return new Vector3Int(esquina.x+pos.x,esquina.y-pos.y,0);
-        return Objetos.WorldToCell(pos);
+        return Obstaculos.WorldToCell(pos);
     }
 
     public void PonerTile(Vector3 pos, Tile tile, Tilemap tilemap){
@@ -68,9 +69,17 @@ public class MapaServer : MonoBehaviour
         posBandera = pos;
     }
 
+    public bool EsUlti(Vector3 pos){
+        return ObtTile(pos,Objetos)==Municion;
+    }
+
+    public bool EsBandera(Vector3 pos){
+        return ObtTile(pos,Objetos)==Bandera;
+    }
+
     public void DestruirCaja(Vector3 pos){
-        if(ObtTile(pos,Objetos)==Caja){
-            EliminarTile(pos,Objetos);
+        if(ObtTile(pos,Obstaculos)==Caja){
+            EliminarTile(pos,Obstaculos);
 
             // Decide si poner municion o una bandera y spawnea
             if(Random.Range(0f,1f)>0.75f){
@@ -93,12 +102,12 @@ public class MapaServer : MonoBehaviour
             
             // No pongamos cajas donde ya hayan cosas
             // FALTA MIRAR QUE NO SE PONGAN ENCIMA DE UN PERSONAJE
-            while(ObtTile(new Vector3Int(x,y,0),Objetos)!=null){
+            while(ObtTile(new Vector3Int(x,y,0),Obstaculos)!=null){
                 x = Random.Range(esquinaSupIzq.x,esquinaInfDer.x+1);
                 y = Random.Range(esquinaInfDer.y,esquinaSupIzq.y+1);
             }
 
-            PonerTile(new Vector3Int(x,y,0),Caja,Objetos);
+            PonerTile(new Vector3Int(x,y,0),Caja,Obstaculos);
         }
         nCajas += n;
     }
@@ -109,12 +118,12 @@ public class MapaServer : MonoBehaviour
             if(t.name=="Azul"){
                 puntosAzul++;
 
-                EliminarTile(posBandera,Objetos);
+                EliminarTile(posBandera,Obstaculos);
                 SpawnearCajas(maxCajas-nCajas);
             }else if(t.name=="Rojo"){
                 puntosRojo++;
 
-                EliminarTile(posBandera,Objetos);
+                EliminarTile(posBandera,Obstaculos);
                 SpawnearCajas(maxCajas-nCajas);
             }  
         }
@@ -142,6 +151,10 @@ public class MapaServer : MonoBehaviour
             case "Ulti":
                 players[sh.idInput-1].UsarUlti();
                 break;
+
+            case "Coger":
+                players[sh.idInput-1].Coger();
+                break;
         }
         
     }
@@ -149,6 +162,9 @@ public class MapaServer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach(PlayerControllerServer p in players){
+            p.mapa = this;
+        }
         var g = GameObject.FindWithTag("Handler");
         sh = g.GetComponent<ServerHandler>();
         sh.LlegaInputEvent.AddListener(LlegaInput);
@@ -169,7 +185,7 @@ public class MapaServer : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Debug.Log(CalcPos(worldPoint));
-            var tile = ObtTile(worldPoint,Objetos);
+            var tile = ObtTile(worldPoint,Obstaculos);
 
             if(tile)
             {
