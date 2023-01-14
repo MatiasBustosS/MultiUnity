@@ -438,6 +438,7 @@ public class PlayerControllerServer : MonoBehaviour
             var bulletAux = Instantiate(bullet, transform.position, Quaternion.identity);
             bulletAux.GetComponent<Bullet>().Player = gameObject;
             bulletAux.GetComponent<Bullet>()._Damage = bulletDamage;
+            bulletAux.GetComponent<Bullet>().Mapa = mapa;
 
             switch (lookAt)
             {

@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     [HideInInspector] public float _Damage;
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public GameObject Player;
+    [HideInInspector] public MapaServer Mapa;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,9 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && collision.gameObject != Player)
         {
             collision.GetComponent<PlayerControllerServer>().Damage(_Damage);
+        }
+        else if(collision.gameObject.CompareTag("Obstaculo")){
+            Mapa.EliminarTile(collision.transform.localPosition,Mapa.Obstaculos);
         }
         Destroy(gameObject);
     }
