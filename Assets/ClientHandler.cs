@@ -34,6 +34,7 @@ public class ClientHandler : MonoBehaviour
     public string tileRecibido;
     public string tilemapRecibido;
     public Vector3 tilePos;
+    public UnityEvent MostrarMapaEvent;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class ClientHandler : MonoBehaviour
         PuedoEscoger = new UnityEvent();
         NombreCambiado = new UnityEvent();
         RecibirTile = new UnityEvent();
+        MostrarMapaEvent = new UnityEvent();
     }
 
     public bool StartClient(int localPort, string remoteIP, int remotePort, string nombreJug)
@@ -95,10 +97,14 @@ public class ClientHandler : MonoBehaviour
 
     void Mensaje(string mensaje){
         string[] args = mensaje.Split("_"); //args[0] tiene el tipo de mensaje, args[1] contenido
-            string[] args2 = args[1].Split(",");
+        string[] args2 = args[1].Split(",");
         switch(args[0]){
             case "Tile":
                 LlegaTile(args2);
+                break;
+
+            case "OK":
+                MostrarMapa();
                 break;
 
             case "Juego":
@@ -193,13 +199,17 @@ public class ClientHandler : MonoBehaviour
 
     void LlegaTile(string[] args){
         Debug.Log(args[0]);
-        tilePos = new Vector3(float.Parse(args[0]),float.Parse(args[1]),float.Parse(args[2]));
-        tileRecibido = args[3];
-        tilemapRecibido = args[4];
+        tilePos = Utilidades.FormatString(args[0]);
+        tileRecibido = args[1];
+        tilemapRecibido = args[2];
         RecibirTile.Invoke();
     }
 
-    public void EnviarInput(){
-        SendToServer("");
+    public void EnviarInput(string tipo, Vector3 pos){
+        SendToServer("Input_"+tipo+","+Utilidades.FormatVector(pos));
+    }
+
+    void MostrarMapa(){
+        MostrarMapaEvent.Invoke();
     }
 }

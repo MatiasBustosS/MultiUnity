@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class Jugador{
@@ -28,9 +29,15 @@ public class ServerHandler : MonoBehaviour
     public bool empezado = false;
     public bool JuegoEmpezado = false;
 
+    public UnityEvent LlegaInputEvent;
+    public int idInput;
+    public string TipoInput;
+    public Vector3 InputVec3;
+
     private void Start()
     {
         DontDestroyOnLoad(this);
+        LlegaInputEvent = new UnityEvent();
     }
 
     public bool StartServer(int localPort)
@@ -78,7 +85,12 @@ public class ServerHandler : MonoBehaviour
         foreach (var mensaje in mensajes)
         {
             string[] args = mensaje.Split("_"); //args[0] tiene el tipo de mensaje, args[1] contenido
+            string[] args2 = args[1].Split(",");
             switch(args[0]){
+                case "Input":
+                    LlegaInput(from,args2);
+                    break;
+
                 case "Nom": // Avisa del equipo en el que estamos
                     CambiarNombre(from,args[1]);
                     break;
@@ -211,12 +223,21 @@ public class ServerHandler : MonoBehaviour
         }
     }
 
-    string FormatVector(Vector3 v){
-        return v.x+","+v.y+","+v.z;
-    }
+    
 
     public void EnviarTile(Vector3 pos, string tile, string tilemap){
-        SendToAll("Tile_"+FormatVector(pos)+","+tile+","+tilemap);
+        SendToAll("Tile_"+Utilidades.FormatVector(pos)+","+tile+","+tilemap);
+    }
+
+    public void EnviarOK(){
+        SendToAll("OK_");
+    }
+
+    void LlegaInput(int id,string[] args){
+        TipoInput = args[0];
+        InputVec3 = Utilidades.FormatString(args[1]);
+        idInput = id;
+        LlegaInputEvent.Invoke();
     }
 
 }

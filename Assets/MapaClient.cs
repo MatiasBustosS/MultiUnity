@@ -11,8 +11,10 @@ public class MapaClient : MonoBehaviour
     public Tile[] tilesArray;
     Dictionary<string,Tile> tiles;
 
-    Vector3Int esquinaSupIzq = new Vector3Int(-7,6,0);
-    Vector3Int esquinaInfDer = new Vector3Int(6,-7,0);
+    // Vector3Int esquinaSupIzq = new Vector3Int(-7,6,0);
+    // Vector3Int esquinaInfDer = new Vector3Int(6,-7,0);
+
+    public GameObject Cargando;
 
     // public int maxCajas = 20;
     // public int minCajas = 4;
@@ -51,20 +53,40 @@ public class MapaClient : MonoBehaviour
     /** --------------------------------------------------- **/
 
     void RecibirTile(){
-        Debug.Log(ch.tileRecibido);
-        Debug.Log(tiles.Values);
-        PonerTile(ch.tilePos,tiles[ch.tileRecibido],Objetos);
+        if(ch.tileRecibido!="")
+            PonerTile(ch.tilePos,tiles[ch.tileRecibido],Objetos);
+        else
+            EliminarTile(ch.tilePos,Objetos);
     }  
+
+    void MostrarMapa(){
+        Cargando.SetActive(false);
+    }
 
     void EnviarInput(){
 
+    }
+
+    void EnviarClic(){
+
+    }
+
+    void GestionarInput(){
+        // DEBUG
+        if(Input.GetMouseButtonDown(0)){
+            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            ch.EnviarInput("Clic",worldPoint);
+        }
     }
 
     void Awake()
     {
         var g = GameObject.FindWithTag("Handler");
         ch = g.GetComponent<ClientHandler>();
+
         ch.RecibirTile.AddListener(RecibirTile);
+        ch.MostrarMapaEvent.AddListener(MostrarMapa);
+
         Random.InitState(System.DateTime.Now.Millisecond);
         tiles = new Dictionary<string, Tile>();
         foreach(Tile t in tilesArray){
@@ -77,16 +99,7 @@ public class MapaClient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // DEBUG
-        if(Input.GetMouseButtonDown(0)){
-            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log(CalcPos(worldPoint));
-            var tile = ObtTile(worldPoint,Objetos);
-
-            if(tile)
-            {
-                
-            }
-        }
+        GestionarInput();
+        
     }
 }

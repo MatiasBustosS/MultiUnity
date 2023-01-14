@@ -39,7 +39,11 @@ public class MapaServer : MonoBehaviour
 
     public void PonerTile(Vector3 pos, Tile tile, Tilemap tilemap){
         tilemap.SetTile(CalcPos(pos),tile);
-        sh.EnviarTile(pos,tile.name,tilemap.name);
+        if(tile)
+            sh.EnviarTile(pos,tile.name,tilemap.name);
+        else
+            sh.EnviarTile(pos,"",tilemap.name);
+
     }
 
     public void EliminarTile(Vector3 pos, Tilemap tilemap){
@@ -114,14 +118,26 @@ public class MapaServer : MonoBehaviour
         }
     }    
 
+    void EnviarOK(){
+        sh.EnviarOK();
+    }
+
+    void LlegaInput(){
+        // DEBUG
+        if(sh.TipoInput=="Clic"){
+            DestruirCaja(sh.InputVec3);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         var g = GameObject.FindWithTag("Handler");
         sh = g.GetComponent<ServerHandler>();
+        sh.LlegaInputEvent.AddListener(LlegaInput);
         Random.InitState(System.DateTime.Now.Millisecond);
         SpawnearCajas(maxCajas);
-        // MANDAR UN OK A TODOS???
+        EnviarOK();
     }
 
     // Update is called once per frame
