@@ -27,6 +27,8 @@ public class MapaServer : MonoBehaviour
     int puntosAzul = 0;
     int puntosRojo = 0;
 
+    public PlayerControllerServer[] players;
+
 
     /**                  FUNCIONES TILES                    **/
     // Calcula el vector resultante de poner pos en el SR de la esquina superior izquierda
@@ -71,9 +73,9 @@ public class MapaServer : MonoBehaviour
             EliminarTile(pos,Objetos);
 
             // Decide si poner municion o una bandera y spawnea
-            if(Random.Range(0f,1f)>0.65f){
+            if(Random.Range(0f,1f)>0.75f){
                 SpawnearMunicion(pos);
-            }else if(!BanderaSpawneada && Random.Range(0f,1f)>0.2f){
+            }else if(!BanderaSpawneada && Random.Range(0f,1f)>0.85f){
                 SpawnearBandera(pos);
             }
 
@@ -124,9 +126,24 @@ public class MapaServer : MonoBehaviour
 
     void LlegaInput(){
         // DEBUG
-        if(sh.TipoInput=="Clic"){
-            DestruirCaja(sh.InputVec3);
+        // if(sh.TipoInput=="Clic"){
+        //     DestruirCaja(sh.InputVec3);
+        // }
+
+        switch(sh.TipoInput){
+            case "Moverse":
+                players[sh.idInput-1].Moverse(sh.InputVec3);
+                break;
+
+            case "Atacar":
+                players[sh.idInput-1].Atacar();
+                break;
+
+            case "Ulti":
+                players[sh.idInput-1].UsarUlti();
+                break;
         }
+        
     }
 
     // Start is called before the first frame update

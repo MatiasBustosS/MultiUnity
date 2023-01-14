@@ -10,22 +10,9 @@ public class MapaClient : MonoBehaviour
     // public Tilemap Fondo;
     public Tile[] tilesArray;
     Dictionary<string,Tile> tiles;
-
-    // Vector3Int esquinaSupIzq = new Vector3Int(-7,6,0);
-    // Vector3Int esquinaInfDer = new Vector3Int(6,-7,0);
-
     public GameObject Cargando;
 
-    // public int maxCajas = 20;
-    // public int minCajas = 4;
-    // int nCajas = 0;
-
-    // bool BanderaSpawneada = false;
-    // bool BanderaAgarrada = false;
-    // Vector3 posBandera = new Vector3Int(-1000,-1000,-1000);
-
-    // int puntosAzul = 0;
-    // int puntosRojo = 0;
+    bool Moviendose = false;
 
 
     /**                  FUNCIONES TILES                    **/
@@ -63,19 +50,30 @@ public class MapaClient : MonoBehaviour
         Cargando.SetActive(false);
     }
 
-    void EnviarInput(){
-
-    }
-
-    void EnviarClic(){
-
-    }
-
     void GestionarInput(){
         // DEBUG
-        if(Input.GetMouseButtonDown(0)){
-            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            ch.EnviarInput("Clic",worldPoint);
+        // if(Input.GetMouseButtonDown(0)){
+        //     Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //     ch.EnviarInput("Clic",worldPoint);
+        // }
+
+        if(Input.GetAxisRaw("Horizontal")!=0){
+            ch.EnviarInput("Moverse",new Vector2(Input.GetAxisRaw("Horizontal"), 0));
+            Moviendose = true;
+        }else if(Input.GetAxisRaw("Vertical")!=0){
+            ch.EnviarInput("Moverse",new Vector2(0, Input.GetAxisRaw("Vertical")));
+            Moviendose = true;
+        }else if(Moviendose){
+            ch.EnviarInput("Moverse",new Vector2(0, 0));
+            Moviendose = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Mouse0)){
+            ch.EnviarInput("Atacar", Vector2.zero);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            ch.EnviarInput("Ulti", Vector2.zero);
         }
     }
 
