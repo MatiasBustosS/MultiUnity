@@ -118,12 +118,12 @@ public class MapaServer : MonoBehaviour
             if(t.name=="Azul"){
                 puntosAzul++;
 
-                EliminarTile(posBandera,Obstaculos);
+                EliminarTile(posBandera,Objetos);
                 SpawnearCajas(maxCajas-nCajas);
             }else if(t.name=="Rojo"){
                 puntosRojo++;
 
-                EliminarTile(posBandera,Obstaculos);
+                EliminarTile(posBandera,Objetos);
                 SpawnearCajas(maxCajas-nCajas);
             }  
         }
@@ -157,8 +157,18 @@ public class MapaServer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int i = 1;
         foreach(PlayerControllerServer p in players){
+            if(i>Utilidades.Jugadores.Count) break;
             p.mapa = this;
+            Debug.Log(Utilidades.Jugadores[i].nombre);
+            p.CambiarPersonaje((PlayerControllerServer.ClassType)Utilidades.Jugadores[i].personaje);
+            i++;
+        }
+        if(Utilidades.Jugadores.Count==3) players[2].gameObject.SetActive(true);
+        else if(Utilidades.Jugadores.Count==4){
+            players[2].gameObject.SetActive(true);
+            players[3].gameObject.SetActive(true);
         }
         var g = GameObject.FindWithTag("Handler");
         sh = g.GetComponent<ServerHandler>();

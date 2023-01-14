@@ -9,7 +9,7 @@ public class ClientHandler : MonoBehaviour
     public bool test = false;
     private NetworkHelper networkHelper;
 
-    int idJuego = -1;
+    public int idJuego = -1;
     public string nombre = "";
     public int equipo = -1; //0 -> azul, 1 -> rojo, -1 -> sin equipo
     public int personaje = -1;

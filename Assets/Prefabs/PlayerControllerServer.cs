@@ -477,8 +477,8 @@ public class PlayerControllerServer : MonoBehaviour
         }
     }
 
-    public void CambiarPersonaje(){
-        switch (myClass)
+    public void CambiarPersonaje(ClassType c){
+        switch (c)
         {
             // SETEAR SPRITES Y ANIMACIONES DEPENDIENDO EL ROL
             case ClassType.Healer:

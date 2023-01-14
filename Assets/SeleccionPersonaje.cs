@@ -45,6 +45,10 @@ public class SeleccionPersonaje : MonoBehaviour
             }else{
                 NombreCompiRival.text = j.nombre;
             }
+        }else{
+            if(!ch.eresCompi){
+                NombreCompi.text = j.nombre;
+            }
         }
     }
 
@@ -55,6 +59,7 @@ public class SeleccionPersonaje : MonoBehaviour
                 NombreJugadorRival.text = j.nombre;
                 BotonPreparado.interactable = true;
                 rivalPuesto = true;
+                if(ch.equipo==1 || (ch.equipo==0 && ch.eresCompi)) rivalNombre = true;
             }else{
                 NombreCompiRival.text = j.nombre;
             }
@@ -69,19 +74,19 @@ public class SeleccionPersonaje : MonoBehaviour
 
     public void Preparado(){
         BotonPreparado.interactable = false;
-        NombreJugador.color = Color.green;
+        // NombreJugador.color = Color.green;
         ch.Preparado();
     }
 
     void OtroPreparado(){
         // HAY QUE CAMBIARLO
-        if(ch.prep==2){
-            NombreJugadorRival.color = Color.green;
-        }else if(ch.prep==3){
-            NombreCompi.color = Color.green;
-        }else{
-            NombreCompiRival.color = Color.green;
-        }
+        // if(ch.prep==2){
+        //     NombreJugadorRival.color = Color.green;
+        // }else if(ch.prep==3){
+        //     NombreCompi.color = Color.green;
+        // }else{
+        //     NombreCompiRival.color = Color.green;
+        // }
     }
 
     void PonerNombres(){
@@ -91,6 +96,7 @@ public class SeleccionPersonaje : MonoBehaviour
                     NombreJugadorRival.text = j.nombre;
                     BotonPreparado.interactable = true;
                     rivalPuesto = true;
+                    rivalNombre = true;
                 }else{
                     NombreCompiRival.text = j.nombre;
                 }
@@ -121,8 +127,11 @@ public class SeleccionPersonaje : MonoBehaviour
     }
 
     public void BloquearPersonaje(){
-        Destroy(BotonesPersonajes);
-        ch.Escoger(seleccionado);
+        if(seleccionado!=-1){
+            Destroy(BotonesPersonajes);
+            ch.Escoger(seleccionado);
+
+        }
     }
     // ----------------------------------------
 

@@ -11,4 +11,6 @@ public static class Utilidades{
         string[] nums = s.Split("|");
         return new Vector3(float.Parse(nums[0].Replace(".", ",")),float.Parse(nums[1].Replace(".", ",")),float.Parse(nums[2].Replace(".", ",")));
     }
+
+    public static Dictionary<int,Jugador> Jugadores = new Dictionary<int, Jugador>();
 }

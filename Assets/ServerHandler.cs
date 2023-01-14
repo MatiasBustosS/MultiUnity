@@ -21,7 +21,7 @@ public class ServerHandler : MonoBehaviour
     int nRojo = 0;
 
     // Probablemente se pueda usar una lista, pero como solo van a haber 4 tampoco pasa nada
-    Dictionary<int,Jugador> Jugadores = new Dictionary<int, Jugador>();
+    // public Dictionary<int,Jugador> Jugadores;
     int nJugadores = 0;
     int nPreparados = 0;
     int nEscogidos = 0;
@@ -138,13 +138,13 @@ public class ServerHandler : MonoBehaviour
         Jugador j = new Jugador();
         j.id = id;
         j.nombre = nombre;
-        Jugadores.Add(id,j);
+        Utilidades.Jugadores.Add(id,j);
         nJugadores++;
     }
 
     // Envia todos los jugadores actuales al id
     void EnviarJugadores(int id){
-        foreach(Jugador j in Jugadores.Values){
+        foreach(Jugador j in Utilidades.Jugadores.Values){
             if(j.id!=id) SendToClient(id,"Jug_"+JsonUtility.ToJson(j));
         }
     }
@@ -152,7 +152,7 @@ public class ServerHandler : MonoBehaviour
     // Cambia el nombre del jugador id y avisa al resto
     void CambiarNombre(int id,string nombre){
         if(nombre!=""){
-            Jugadores[id].nombre = nombre;
+            Utilidades.Jugadores[id].nombre = nombre;
 
             // Avisamos a todos del nombre
             SendToAllExcept("Nom_"+id+","+nombre,id);
@@ -183,10 +183,10 @@ public class ServerHandler : MonoBehaviour
         }
 
         // Avisamos al jugador de su equipo
-        Jugadores[id].equipo = num;
+        Utilidades.Jugadores[id].equipo = num;
         SendToClient(id,"Eq_"+num);
         // Avisamos a todos del nuevo jugador (excepto a este)
-        SendToAllExcept("Jug_"+JsonUtility.ToJson(Jugadores[id]),id);
+        SendToAllExcept("Jug_"+JsonUtility.ToJson(Utilidades.Jugadores[id]),id);
     }
 
     // Avisa a todos de que id está preparado y mira si hay que empezar partida
@@ -209,17 +209,20 @@ public class ServerHandler : MonoBehaviour
 
     // Pone el personaje escogido al 
     void PonerPersonaje(int id, int pers){
-        Jugadores[id].personaje = pers;
-        if(id==1){
-            SendToClient(3,"Esc_"+pers);
-        }else if(id==2){
-            SendToClient(4,"Esc_"+pers);
-        }
+        Utilidades.Jugadores[id].personaje = pers;
+        Debug.Log(id+" "+pers);
+        
         nEscogidos++;
         if(nEscogidos==nJugadores){
             SendToAll("Juego_");
             JuegoEmpezado = true;
             SceneManager.LoadScene("MapaServer");
+        }
+
+        if(id==1){
+            SendToClient(3,"Esc_"+pers);
+        }else if(id==2){
+            SendToClient(4,"Esc_"+pers);
         }
     }
 
