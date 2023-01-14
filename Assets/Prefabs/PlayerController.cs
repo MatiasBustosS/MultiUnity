@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -13,6 +15,13 @@ using UnityEditor;
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public int playerID;
+
+
+    public Slider lifeBar;
+    public TextMeshProUGUI nameTag;
+
+    public String playerName;
+    
     public enum Team
     {
         team_1,
@@ -22,6 +31,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool canMove = true;
 
+
+    public bool haveFlag = false;
+    private bool changeColorName = false;
     [HideInInspector] public Vector2 gotoPosition;
     [SerializeField] private float speed = 5;
     [SerializeField] private float life = 5;
@@ -144,6 +156,9 @@ public class PlayerController : MonoBehaviour
         gotoPosition = transform.position;
         _animator = GetComponent<Animator>();
         originalDamage = bulletDamage;
+
+        nameTag.text = playerName;
+        lifeBar.value = life;
         
         switch (myClass)
         {
@@ -166,7 +181,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (haveFlag )
+        {
+            nameTag.color = Color.red;
+        }
         
+        else if(!haveFlag)
+        {
+            nameTag.color = Color.white;
+        }
+        
+
         if (input.y == 0)
         {
             input.x = Input.GetAxisRaw("Horizontal") * DistanceToMove;
@@ -340,6 +366,8 @@ public class PlayerController : MonoBehaviour
         {
             life = Mathf.Clamp(life - _damage, 0, 5);
         }
+        
+        lifeBar.value = life;
     }
 
     private void HealFunction()
@@ -353,6 +381,8 @@ public class PlayerController : MonoBehaviour
                 otherplayer.GetComponent<PlayerController>().life = Mathf.Clamp(0, 5,life+1);;
             }
         }
+        
+        lifeBar.value = life;
     }
 
     private void PutUltiTrap()
