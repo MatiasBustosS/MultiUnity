@@ -20,8 +20,7 @@ public class TrapController : MonoBehaviour
             if (collision.gameObject.GetComponent<PlayerController>().myTeam != Player.GetComponent<PlayerController>().myTeam)
             {
                 collision.GetComponent<PlayerController>().Damage(_Damage);
-                StartCoroutine(collision.GetComponent<PlayerController>().TrapEffect());
-                Destroy(gameObject);
+                StartCoroutine(collision.GetComponent<PlayerController>().TrapEffect(gameObject));
             }
         }
     }

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   myTeam: 0
-  isPlayable: 0
+  canMove: 1
   gotoPosition: {x: 0, y: 0}
   speed: 5
   life: 5
@@ -162,11 +162,12 @@ MonoBehaviour:
   offsetPosition: {x: 0, y: 0}
   DistanceToMove: 1.5825
   circleRadius: 0.65
-  trap: {fileID: 3940889608574997821, guid: 2a1cc6ab1d99cef4cbad1184a3e86b7d, type: 3}
   lookAt: 1
   bullet: {fileID: 3082111730956987286, guid: 516919056d14d4248a87f784f1e440b3, type: 3}
-  UltiCharge: 0
-  myClass: 0
+  trap: {fileID: 3940889608574997821, guid: 2a1cc6ab1d99cef4cbad1184a3e86b7d, type: 3}
+  trapDamage: 1
+  UltiCharge: 1
+  myClass: 1
 --- !u!95 &1105011627
 Animator:
   serializedVersion: 4

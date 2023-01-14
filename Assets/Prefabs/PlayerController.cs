@@ -219,22 +219,23 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        
 
+        if (Moving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,
+                new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
+
+            if (Vector2.Distance(transform.position, gotoPosition) == 0)
+            {
+                
+                Moving = false;
+                _animator.SetBool("Move", false);
+            }
+        }
+        
         if (canMove)
         {
-
-            if (Moving)
-            {
-                transform.position = Vector3.MoveTowards(transform.position,
-                    new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
-
-                if (Vector2.Distance(transform.position, gotoPosition) == 0)
-                {
-                    Moving = false;
-                    _animator.SetBool("Move", false);
-                }
-            }
-
             if ((input.x != 0 || input.y != 0) && !Moving)
             {
                 Vector2 puntoEvaluar = new Vector2(transform.position.x, transform.position.y) + offsetPosition + input;
@@ -248,6 +249,8 @@ public class PlayerController : MonoBehaviour
                     Moving = true;
                     gotoPosition += input;
                 }
+                
+                
             }
 
             if (CanShot)
@@ -372,25 +375,32 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         
-        Debug.Log("asdjhbasjd   ");
         
-        Vector2 putTrap = new Vector2(transform.position.x, transform.position.y) + offsetPosition + look;
+        Vector2 putTrap = new Vector2(transform.position.x, transform.position.y) + offsetPosition + look* 1.58f;
+        
+        Debug.Log(look);
 
         if (!Physics2D.OverlapCircle(putTrap, circleRadius, obstacles))
         {
             Debug.Log("Trampa Colocada");
             var _trap = Instantiate(trap, putTrap, Quaternion.identity);
+            _trap.GetComponent<TrapController>().Player = gameObject;
             _trap.GetComponent<TrapController>()._Damage = trapDamage;
         }
     }
 
-    public IEnumerator TrapEffect()
+    public IEnumerator TrapEffect(GameObject trap)
     {
         canMove = false;
-        
-        yield return new WaitForSeconds(2f);
+
+        yield return new WaitForSeconds(1f);
 
         canMove = true;
+        if (trap)
+        {
+            Destroy(trap);
+        }
+        
     }
 
     private IEnumerator UltiTank()
