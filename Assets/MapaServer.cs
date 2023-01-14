@@ -134,11 +134,6 @@ public class MapaServer : MonoBehaviour
     }
 
     void LlegaInput(){
-        // DEBUG
-        // if(sh.TipoInput=="Clic"){
-        //     DestruirCaja(sh.InputVec3);
-        // }
-
         switch(sh.TipoInput){
             case "Moverse":
                 players[sh.idInput-1].Moverse(sh.InputVec3);

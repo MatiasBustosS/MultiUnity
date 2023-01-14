@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class MapaClient : MonoBehaviour
 {
     private ClientHandler ch = null;
+    public Tilemap Obstaculos;
     public Tilemap Objetos;
     // public Tilemap Fondo;
     public Tile[] tilesArray;
@@ -14,6 +15,9 @@ public class MapaClient : MonoBehaviour
 
     bool Moviendose = false;
 
+    public PlayerControllerClient[] players;
+
+
 
     /**                  FUNCIONES TILES                    **/
     // Calcula el vector resultante de poner pos en el SR de la esquina superior izquierda
@@ -21,7 +25,7 @@ public class MapaClient : MonoBehaviour
     private Vector3Int CalcPos(Vector3 pos){
         // Vector3Int esquina = new Vector3Int(Objetos.origin.x,Objetos.origin.y+Objetos.size.y-1,0);
         // return new Vector3Int(esquina.x+pos.x,esquina.y-pos.y,0);
-        return Objetos.WorldToCell(pos);
+        return Obstaculos.WorldToCell(pos);
     }
 
     public void PonerTile(Vector3 pos, Tile tile, Tilemap tilemap){
@@ -41,9 +45,9 @@ public class MapaClient : MonoBehaviour
 
     void RecibirTile(){
         if(ch.tileRecibido!="")
-            PonerTile(ch.tilePos,tiles[ch.tileRecibido],Objetos);
+            PonerTile(ch.tilePos,tiles[ch.tileRecibido],Obstaculos);
         else
-            EliminarTile(ch.tilePos,Objetos);
+            EliminarTile(ch.tilePos,Obstaculos);
     }  
 
     void MostrarMapa(){
@@ -51,12 +55,6 @@ public class MapaClient : MonoBehaviour
     }
 
     void GestionarInput(){
-        // DEBUG
-        // if(Input.GetMouseButtonDown(0)){
-        //     Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //     ch.EnviarInput("Clic",worldPoint);
-        // }
-
         if(Input.GetAxisRaw("Horizontal")!=0 && !Moviendose){
             ch.EnviarInput("Moverse",new Vector2(Input.GetAxisRaw("Horizontal"), 0));
             Moviendose = true;
@@ -83,13 +81,38 @@ public class MapaClient : MonoBehaviour
         }
     }
 
+    void LlegaInput(){
+        switch(ch.TipoInput){
+            case "Moverse":
+                players[ch.idInput-1].Moverse(ch.InputVec3);
+                break;
+
+            case "Atacar":
+                players[ch.idInput-1].Atacar();
+                break;
+
+            case "Ulti":
+                players[ch.idInput-1].UsarUlti();
+                break;
+
+            case "Coger":
+                players[ch.idInput-1].Coger();
+                break;
+        }
+    }
+
     void Awake()
     {
         var g = GameObject.FindWithTag("Handler");
         ch = g.GetComponent<ClientHandler>();
 
+        foreach(PlayerControllerClient p in players){
+            p.mapa = this;
+        }
+
         ch.RecibirTile.AddListener(RecibirTile);
         ch.MostrarMapaEvent.AddListener(MostrarMapa);
+        ch.LlegaInputEvent.AddListener(LlegaInput);
 
         Random.InitState(System.DateTime.Now.Millisecond);
         tiles = new Dictionary<string, Tile>();

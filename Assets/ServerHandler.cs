@@ -238,6 +238,6 @@ public class ServerHandler : MonoBehaviour
         InputVec3 = Utilidades.FormatString(args[1]);
         idInput = id;
         LlegaInputEvent.Invoke();
+        SendToAll("Input_"+TipoInput+","+args[1]+","+id);
     }
-
 }

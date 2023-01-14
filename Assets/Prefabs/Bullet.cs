@@ -35,7 +35,8 @@ public class Bullet : MonoBehaviour
             collision.GetComponent<PlayerControllerServer>().Damage(_Damage);
         }
         else if(collision.gameObject.CompareTag("Obstaculo")){
-            Mapa.EliminarTile(collision.transform.localPosition,Mapa.Obstaculos);
+            // Debug.Log(transform.position+direction);
+            Mapa.DestruirCaja(transform.position+new Vector3(direction.x,direction.y,0));
         }
         Destroy(gameObject);
     }

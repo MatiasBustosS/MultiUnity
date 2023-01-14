@@ -10,7 +10,7 @@ using UnityEditor;
 
 #endif
 
-public class PlayerControllerServer : MonoBehaviour
+public class PlayerControllerClient : MonoBehaviour
 {
     [HideInInspector] public int playerID;
     public enum Team
@@ -76,7 +76,7 @@ public class PlayerControllerServer : MonoBehaviour
     private int objectsToCreate;
     private float MaxDamage;
 
-    public MapaServer mapa;
+    public MapaClient mapa;
     public bool tieneBandera = false;
     
     // VALORES PROPIOS DE LOS ROLES DE CADA PERSONAJES
@@ -84,14 +84,14 @@ public class PlayerControllerServer : MonoBehaviour
 
 #if UNITY_EDITOR
     
-    [CustomEditor(typeof(PlayerControllerServer))]
+    [CustomEditor(typeof(PlayerControllerClient))]
     public class ChangeInspector : Editor
     {
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
-            PlayerControllerServer controller = (PlayerControllerServer)target;
+            PlayerControllerClient controller = (PlayerControllerClient)target;
 
             EditorGUILayout.BeginHorizontal();
             InspectorValues(controller);
@@ -99,7 +99,7 @@ public class PlayerControllerServer : MonoBehaviour
 
         }
 
-        static void InspectorValues(PlayerControllerServer controller)
+        static void InspectorValues(PlayerControllerClient controller)
         {
             switch (controller.myClass)
             {
@@ -251,10 +251,10 @@ public class PlayerControllerServer : MonoBehaviour
                     gotoPosition += input;
 
                     // Si hay ulti, se pone
-                    if(mapa.EsUlti(puntoEvaluar)){
-                        UltiCharge = true;
-                        mapa.EliminarTile(puntoEvaluar,mapa.Objetos);
-                    }
+                    // if(mapa.EsUlti(puntoEvaluar)){
+                    //     UltiCharge = true;
+                    //     mapa.EliminarTile(puntoEvaluar,mapa.Objetos);
+                    // }
                 }
                 // else{
                 //     Moving = false;
@@ -357,9 +357,9 @@ public class PlayerControllerServer : MonoBehaviour
                 
         foreach (var otherplayer in players)
         {
-            if (otherplayer.GetComponent<PlayerControllerServer>().myTeam == myTeam)
+            if (otherplayer.GetComponent<PlayerControllerClient>().myTeam == myTeam)
             {
-                otherplayer.GetComponent<PlayerControllerServer>().life = Mathf.Clamp(0, 5,life+1);;
+                otherplayer.GetComponent<PlayerControllerClient>().life = Mathf.Clamp(0, 5,life+1);;
             }
         }
     }
@@ -386,13 +386,13 @@ public class PlayerControllerServer : MonoBehaviour
         
         Vector2 putTrap = new Vector2(transform.position.x, transform.position.y) + offsetPosition + look;
 
-        if (!Physics2D.OverlapCircle(putTrap, circleRadius, obstacles) && mapa.ObtTile(putTrap, mapa.Obstaculos)==null)
-        {
-            Debug.Log("Trampa Colocada");
-            var _trap = Instantiate(trap, putTrap, Quaternion.identity);
-            _trap.GetComponent<TrapController>().Player = gameObject;
-            _trap.GetComponent<TrapController>()._Damage = trapDamage;
-        }
+        // if (!Physics2D.OverlapCircle(putTrap, circleRadius, obstacles) && mapa.ObtTile(putTrap, mapa.Obstaculos)==null)
+        // {
+        //     Debug.Log("Trampa Colocada");
+        //     var _trap = Instantiate(trap, putTrap, Quaternion.identity);
+        //     _trap.GetComponent<TrapController>().Player = gameObject;
+        //     _trap.GetComponent<TrapController>()._Damage = trapDamage;
+        // }
     }
 
     public IEnumerator TrapEffect(GameObject trap)
@@ -438,7 +438,7 @@ public class PlayerControllerServer : MonoBehaviour
             var bulletAux = Instantiate(bullet, transform.position, Quaternion.identity);
             bulletAux.GetComponent<Bullet>().Player = gameObject;
             bulletAux.GetComponent<Bullet>()._Damage = bulletDamage;
-            bulletAux.GetComponent<Bullet>().Mapa = mapa;
+            // bulletAux.GetComponent<Bullet>().Mapa = mapa;
 
             switch (lookAt)
             {
@@ -466,34 +466,15 @@ public class PlayerControllerServer : MonoBehaviour
 
     public void Coger(){
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-        if(mapa.EsBandera(pos) && !tieneBandera){
-            tieneBandera = true;
-            mapa.EliminarTile(pos,mapa.Objetos);
-            mapa.BanderaAgarrada = true;
-        }else if(tieneBandera){
-            tieneBandera = false;
-            mapa.SpawnearBandera(pos);
-            mapa.BanderaAgarrada = false;
-        }
-    }
-
-    public void CambiarPersonaje(){
-        switch (myClass)
-        {
-            // SETEAR SPRITES Y ANIMACIONES DEPENDIENDO EL ROL
-            case ClassType.Healer:
-                _animator.SetInteger("Character",1);
-                break;
-            case ClassType.Damage:
-                _animator.SetInteger("Character",2);
-                break;
-            case ClassType.Tank:
-                _animator.SetInteger("Character",3);
-                break;
-            case ClassType.Support:
-                _animator.SetInteger("Character",4);
-                break;
-        }
+        // if(mapa.EsBandera(pos) && !tieneBandera){
+        //     tieneBandera = true;
+        //     mapa.EliminarTile(pos,mapa.Objetos);
+        //     mapa.BanderaAgarrada = true;
+        // }else if(tieneBandera){
+        //     tieneBandera = false;
+        //     mapa.SpawnearBandera(pos);
+        //     mapa.BanderaAgarrada = false;
+        // }
     }
 
     private void OnDrawGizmos()

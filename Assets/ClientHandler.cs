@@ -35,6 +35,11 @@ public class ClientHandler : MonoBehaviour
     public string tilemapRecibido;
     public Vector3 tilePos;
     public UnityEvent MostrarMapaEvent;
+    public UnityEvent LlegaInputEvent;
+
+    public int idInput;
+    public string TipoInput;
+    public Vector3 InputVec3;
 
     private void Start()
     {
@@ -47,6 +52,8 @@ public class ClientHandler : MonoBehaviour
         NombreCambiado = new UnityEvent();
         RecibirTile = new UnityEvent();
         MostrarMapaEvent = new UnityEvent();
+        LlegaInputEvent = new UnityEvent();
+
     }
 
     public bool StartClient(int localPort, string remoteIP, int remotePort, string nombreJug)
@@ -99,6 +106,10 @@ public class ClientHandler : MonoBehaviour
         string[] args = mensaje.Split("_"); //args[0] tiene el tipo de mensaje, args[1] contenido
         string[] args2 = args[1].Split(",");
         switch(args[0]){
+            case "Input":
+                LlegaInput(args2);
+                break;
+
             case "Tile":
                 LlegaTile(args2);
                 break;
@@ -211,5 +222,12 @@ public class ClientHandler : MonoBehaviour
 
     void MostrarMapa(){
         MostrarMapaEvent.Invoke();
+    }
+
+    void LlegaInput(string[] args){
+        TipoInput = args[0];
+        InputVec3 = Utilidades.FormatString(args[1]);
+        idInput = int.Parse(args[2]);
+        LlegaInputEvent.Invoke();
     }
 }
