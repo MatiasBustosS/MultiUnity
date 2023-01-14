@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -11,21 +12,22 @@ using UnityEditor;
 
 public class PlayerController : MonoBehaviour
 {
-
     [HideInInspector] public int playerID;
     public enum Team
     {
         team_1,
         team_2
     }
-
     public Team myTeam;
+
+    [SerializeField] private bool canMove = true;
 
     [HideInInspector] public Vector2 gotoPosition;
     [SerializeField] private float speed = 5;
     [SerializeField] private float life = 5;
     [HideInInspector] public bool isAlive;
     public float bulletDamage;
+    private float originalDamage;
     [SerializeField] private LayerMask obstacles;
 
     [HideInInspector] public bool Moving = false;
@@ -49,10 +51,14 @@ public class PlayerController : MonoBehaviour
 
     private bool CanShot =true;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject trap;
+    [SerializeField] private float trapDamage;
+    
     
     [Header("Character")] 
     
     [SerializeField] private bool UltiCharge = false;
+    private bool UseUlti = false;
     public enum ClassType
     {
         Healer,
@@ -67,8 +73,9 @@ public class PlayerController : MonoBehaviour
     private float boostTime;
     private int objectsToCreate;
     private float MaxDamage;
-
-
+    
+    
+    // VALORES PROPIOS DE LOS ROLES DE CADA PERSONAJES
     #region ChangeInspector
 
 #if UNITY_EDITOR
@@ -97,7 +104,6 @@ public class PlayerController : MonoBehaviour
                     EditorGUI.indentLevel++;
                     EditorGUILayout.LabelField("Heal", GUILayout.Width(130));
                     controller.heal = EditorGUILayout.FloatField(controller.heal);
-                    //float Heal = controller.heal;
                     EditorGUI.indentLevel++;
                     
                     break;
@@ -106,7 +112,6 @@ public class PlayerController : MonoBehaviour
                     EditorGUI.indentLevel++;
                     EditorGUILayout.LabelField("ObjectsToCreate", GUILayout.Width(130));
                     controller.objectsToCreate = EditorGUILayout.IntField(controller.objectsToCreate);
-                    //int ObjectsToCreate = controller.objectsToCreate;
                     EditorGUI.indentLevel++;
                     
                     break;
@@ -115,7 +120,6 @@ public class PlayerController : MonoBehaviour
                     EditorGUI.indentLevel++;
                     EditorGUILayout.LabelField("MaxDamage", GUILayout.Width(130));
                     controller.MaxDamage = EditorGUILayout.FloatField(controller.MaxDamage);
-                    //float MaxDamage = controller.MaxDamage;
                     EditorGUI.indentLevel++;
                     
                     break;
@@ -124,7 +128,6 @@ public class PlayerController : MonoBehaviour
                     EditorGUI.indentLevel++;
                     EditorGUILayout.LabelField("TimeToBoost", GUILayout.Width(130));
                     controller.boostTime = EditorGUILayout.FloatField(controller.boostTime);
-                    //float TimeToBoost = controller.boostTime;
                     EditorGUI.indentLevel++;
                     
                     break;
@@ -136,14 +139,15 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
         gotoPosition = transform.position;
         _animator = GetComponent<Animator>();
+        originalDamage = bulletDamage;
         
         switch (myClass)
         {
+            // SETEAR SPRITES Y ANIMACIONES DEPENDIENDO EL ROL
             case ClassType.Healer:
                 _animator.SetInteger("Character",1);
                 break;
@@ -214,72 +218,76 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-        
-        
-        
-        if (Moving)
+
+
+        if (canMove)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
-            
-            
-            
-            if (Vector2.Distance(transform.position, gotoPosition) == 0)
+
+            if (Moving)
             {
-                Moving = false;
-                _animator.SetBool("Move", false);
-            }
-        }
+                transform.position = Vector3.MoveTowards(transform.position,
+                    new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
 
-        if ((input.x != 0 || input.y != 0) && !Moving)
-        {
-            Vector2 puntoEvaluar = new Vector2(transform.position.x, transform.position.y) + offsetPosition + input;
-            
-            _animator.SetFloat("Horizontal", input.x);
-            _animator.SetFloat("Vertical", input.y);
-
-            if (!Physics2D.OverlapCircle(puntoEvaluar, circleRadius, obstacles))
-            {
-                _animator.SetBool("Move", true);
-                Moving = true;
-                gotoPosition += input;
-            }
-        }
-
-        if (CanShot)
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                CanShot = false;
-                var bulletAux = Instantiate(bullet,transform.position, Quaternion.identity);
-
-                bulletAux.GetComponent<Bullet>().Player = gameObject;
-                
-                switch (lookAt)
+                if (Vector2.Distance(transform.position, gotoPosition) == 0)
                 {
-                    case LookAt.Down:
-                        bulletAux.GetComponent<Bullet>().direction = new Vector2(0,-1);
-                        break;
-                    case LookAt.Up:
-                        bulletAux.GetComponent<Bullet>().direction = new Vector2(0,1);
-                        break;
-                    case LookAt.Right:
-                        bulletAux.GetComponent<Bullet>().direction = new Vector2(1,0);
-                        break;
-                    case LookAt.Left:
-                        bulletAux.GetComponent<Bullet>().direction = new Vector2(-1,0);
-                        break;
-                    
+                    Moving = false;
+                    _animator.SetBool("Move", false);
                 }
+            }
 
-                StartCoroutine(BulletTime());
+            if ((input.x != 0 || input.y != 0) && !Moving)
+            {
+                Vector2 puntoEvaluar = new Vector2(transform.position.x, transform.position.y) + offsetPosition + input;
+
+                _animator.SetFloat("Horizontal", input.x);
+                _animator.SetFloat("Vertical", input.y);
+
+                if (!Physics2D.OverlapCircle(puntoEvaluar, circleRadius, obstacles))
+                {
+                    _animator.SetBool("Move", true);
+                    Moving = true;
+                    gotoPosition += input;
+                }
+            }
+
+            if (CanShot)
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    CanShot = false;
+                    var bulletAux = Instantiate(bullet, transform.position, Quaternion.identity);
+                    bulletAux.GetComponent<Bullet>().Player = gameObject;
+                    bulletAux.GetComponent<Bullet>()._Damage = bulletDamage;
+
+                    switch (lookAt)
+                    {
+                        case LookAt.Down:
+                            bulletAux.GetComponent<Bullet>().direction = new Vector2(0, -1);
+                            break;
+                        case LookAt.Up:
+                            bulletAux.GetComponent<Bullet>().direction = new Vector2(0, 1);
+                            break;
+                        case LookAt.Right:
+                            bulletAux.GetComponent<Bullet>().direction = new Vector2(1, 0);
+                            break;
+                        case LookAt.Left:
+                            bulletAux.GetComponent<Bullet>().direction = new Vector2(-1, 0);
+                            break;
+
+                    }
+
+                    bulletDamage = originalDamage;
+
+                    StartCoroutine(BulletTime());
+                }
             }
         }
-        
 
         if (UltiCharge)
         {
             if (Input.GetKey(KeyCode.Space))
             {
+                UseUlti = true;
                 UltiAttack();
                 UltiCharge = false;
             }
@@ -294,46 +302,102 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private void UltiAttack()
     {
+        
         switch (myClass)
         {
             case ClassType.Healer:
-                var players = GameObject.FindGameObjectsWithTag("Player");
-
-                foreach (var otherplayer in players)
-                {
-                    if (otherplayer.GetComponent<PlayerController>().myTeam == myTeam)
-                    {
-                        otherplayer.GetComponent<PlayerController>().HealFunction(heal);
-                    }
-
-                    HealFunction(heal);
-                }
+                HealFunction();
                 break;
             
             case ClassType.Support:
+                PutUltiTrap();
                 break;
             
             case ClassType.Tank:
+                StartCoroutine(UltiTank());
                 break;
             
             case ClassType.Damage:
+                bulletDamage = MaxDamage;
                 break;
         }
+        
     }
 
     public void Damage(float _damage)
     {
-        
+        if (myClass == ClassType.Tank && UseUlti)
+        {
+            UseUlti = false;
+        }
+        else
+        {
+            life = Mathf.Clamp(life - _damage, 0, 5);
+        }
     }
 
-    public void HealFunction(float _heal)
+    private void HealFunction()
     {
-        
+        var players = GameObject.FindGameObjectsWithTag("Player");
+                
+        foreach (var otherplayer in players)
+        {
+            if (otherplayer.GetComponent<PlayerController>().myTeam == myTeam)
+            {
+                otherplayer.GetComponent<PlayerController>().life = Mathf.Clamp(0, 5,life+1);;
+            }
+        }
     }
-    
-    
+
+    private void PutUltiTrap()
+    {
+        Vector2 look = input; 
+        
+        switch (lookAt)
+        {
+            case LookAt.Down:
+                look = new Vector2(0, -1);
+                break;
+            case LookAt.Up:
+                look = new Vector2(0, 1);
+                break;
+            case LookAt.Right:
+                look = new Vector2(1, 0);
+                break;
+            case LookAt.Left:
+                look = new Vector2(-1, 0);
+                break;
+        }
+        
+        Debug.Log("asdjhbasjd   ");
+        
+        Vector2 putTrap = new Vector2(transform.position.x, transform.position.y) + offsetPosition + look;
+
+        if (!Physics2D.OverlapCircle(putTrap, circleRadius, obstacles))
+        {
+            Debug.Log("Trampa Colocada");
+            var _trap = Instantiate(trap, putTrap, Quaternion.identity);
+            _trap.GetComponent<TrapController>()._Damage = trapDamage;
+        }
+    }
+
+    public IEnumerator TrapEffect()
+    {
+        canMove = false;
+        
+        yield return new WaitForSeconds(2f);
+
+        canMove = true;
+    }
+
+    private IEnumerator UltiTank()
+    {
+        yield return new WaitForSeconds(boostTime);
+        UseUlti = false;
+    }
 
     private void OnDrawGizmos()
     {
