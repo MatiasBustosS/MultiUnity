@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="11c36b7d-e62e-4941-a428-cecc0de5f88a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MultiUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MultiUnity/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Mapa.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Mapa.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MapaClient.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Trap.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Trap.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ClientDEF.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ClientDEF.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SeleccionPersonaje.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SeleccionPersonaje.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
@@ -113,6 +109,9 @@
       <workItem from="1673459171247" duration="8832000" />
       <workItem from="1673637054102" duration="635000" />
       <workItem from="1673702314454" duration="10154000" />
+      <workItem from="1673713686155" duration="1621000" />
+      <workItem from="1673715751513" duration="1166000" />
+      <workItem from="1673718685190" duration="1700000" />
     </task>
     <servers />
   </component>

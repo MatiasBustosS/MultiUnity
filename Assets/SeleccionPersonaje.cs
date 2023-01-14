@@ -69,18 +69,18 @@ public class SeleccionPersonaje : MonoBehaviour
 
     public void Preparado(){
         BotonPreparado.interactable = false;
-        NombreJugador.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        NombreJugador.color = Color.green;
         ch.Preparado();
     }
 
     void OtroPreparado(){
         // HAY QUE CAMBIARLO
         if(ch.prep==2){
-            NombreJugador.GetComponentInChildren<SpriteRenderer>().enabled = true;
+            NombreJugadorRival.color = Color.green;
         }else if(ch.prep==3){
-            NombreCompi.GetComponentInChildren<SpriteRenderer>().enabled = true;
+            NombreCompi.color = Color.green;
         }else{
-            NombreCompiRival.GetComponentInChildren<SpriteRenderer>().enabled = true;
+            NombreCompiRival.color = Color.green;
         }
     }
 
