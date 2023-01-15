@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TMPro.Examples;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -30,13 +31,15 @@ public class PlayerController : MonoBehaviour
     public Team myTeam;
 
     [SerializeField] private bool canMove = true;
-
-
     public bool haveFlag = false;
+    
+    [SerializeField] private float timeToRespawn = 1;
+
     private bool changeColorName = false;
     [HideInInspector] public Vector2 gotoPosition;
     [SerializeField] private float speed = 5;
-    [SerializeField] private float life = 5;
+    [SerializeField] private float totalLife;
+    private float actualLife;
     [HideInInspector] public bool isAlive;
     public float bulletDamage;
     private float originalDamage;
@@ -65,6 +68,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject trap;
     [SerializeField] private float trapDamage;
+
+    private Vector2 initialPos;
     
     
     [Header("Character")] 
@@ -153,12 +158,18 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        initialPos = transform.position;
+        
         gotoPosition = transform.position;
         _animator = GetComponent<Animator>();
         originalDamage = bulletDamage;
 
+        isAlive = true;
+
+        totalLife = 5;
         nameTag.text = playerName;
-        lifeBar.value = life;
+        actualLife = totalLife;
+        lifeBar.value = actualLife;
         
         switch (myClass)
         {
@@ -182,146 +193,150 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (haveFlag )
+        if (isAlive)
         {
-            nameTag.color = Color.red;
-        }
-        
-        else if(!haveFlag)
-        {
-            nameTag.color = Color.white;
-        }
-        
-
-        if (input.y == 0)
-        {
-            input.x = Input.GetAxisRaw("Horizontal") * DistanceToMove;
-            
-            if (!Moving)
+            if (haveFlag )
             {
-                _animator.SetFloat("Horizontal", input.x);
-                _animator.SetFloat("Vertical", 0);
+                nameTag.color = Color.red;
+            }
+            
+            else if(!haveFlag)
+            {
+                nameTag.color = Color.white;
+            }
+            
+    
+            if (input.y == 0)
+            {
+                input.x = Input.GetAxisRaw("Horizontal") * DistanceToMove;
                 
-            }
-            
-            if (input.x < 0)
-            {
-                lookAt = LookAt.Left;
-                _animator.SetFloat("LookAt", 1);
-
-            }
-
-            if (input.x > 0)
-            {
-                lookAt = LookAt.Right;
-                _animator.SetFloat("LookAt", 2);
-
-            }
-
-        }
-
-        if (input.x == 0)
-        {
-            input.y = Input.GetAxisRaw("Vertical") * DistanceToMove;
-
-            if (!Moving)
-            {
-                _animator.SetFloat("Vertical", input.y);
-                _animator.SetFloat("Horizontal", 0);
-            }
-            
-
-            if (input.y < 0)
-            {
-                lookAt = LookAt.Down;
-                _animator.SetFloat("LookAt", 0);
-
-            }
-            if (input.y > 0)
-            {
-                lookAt = LookAt.Up;
-                _animator.SetFloat("LookAt", 3);
-
-            }
-        }
-
-        
-
-        if (Moving)
-        {
-            transform.position = Vector3.MoveTowards(transform.position,
-                new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, gotoPosition) == 0)
-            {
-                
-                Moving = false;
-                _animator.SetBool("Move", false);
-            }
-        }
-        
-        if (canMove)
-        {
-            if ((input.x != 0 || input.y != 0) && !Moving)
-            {
-                Vector2 puntoEvaluar = new Vector2(transform.position.x, transform.position.y) + offsetPosition + input;
-
-                _animator.SetFloat("Horizontal", input.x);
-                _animator.SetFloat("Vertical", input.y);
-
-                if (!Physics2D.OverlapCircle(puntoEvaluar, circleRadius, obstacles))
+                if (!Moving)
                 {
-                    _animator.SetBool("Move", true);
-                    Moving = true;
-                    gotoPosition += input;
+                    _animator.SetFloat("Horizontal", input.x);
+                    _animator.SetFloat("Vertical", 0);
+                    
                 }
                 
-                
-            }
-
-            if (CanShot)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if (input.x < 0)
                 {
-                    CanShot = false;
-                    var bulletAux = Instantiate(bullet, transform.position, Quaternion.identity);
-                    bulletAux.GetComponent<Bullet>().Player = gameObject;
-                    bulletAux.GetComponent<Bullet>()._Damage = bulletDamage;
-
-                    switch (lookAt)
+                    lookAt = LookAt.Left;
+                    _animator.SetFloat("LookAt", 1);
+    
+                }
+    
+                if (input.x > 0)
+                {
+                    lookAt = LookAt.Right;
+                    _animator.SetFloat("LookAt", 2);
+    
+                }
+    
+            }
+    
+            if (input.x == 0)
+            {
+                input.y = Input.GetAxisRaw("Vertical") * DistanceToMove;
+    
+                if (!Moving)
+                {
+                    _animator.SetFloat("Vertical", input.y);
+                    _animator.SetFloat("Horizontal", 0);
+                }
+                
+    
+                if (input.y < 0)
+                {
+                    lookAt = LookAt.Down;
+                    _animator.SetFloat("LookAt", 0);
+    
+                }
+                if (input.y > 0)
+                {
+                    lookAt = LookAt.Up;
+                    _animator.SetFloat("LookAt", 3);
+    
+                }
+            }
+    
+            
+    
+            if (Moving)
+            {
+                transform.position = Vector3.MoveTowards(transform.position,
+                    new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
+    
+                if (Vector2.Distance(transform.position, gotoPosition) == 0)
+                {
+                    
+                    Moving = false;
+                    _animator.SetBool("Move", false);
+                }
+            }
+            
+            if (canMove)
+            {
+                if ((input.x != 0 || input.y != 0) && !Moving)
+                {
+                    Vector2 puntoEvaluar = new Vector2(transform.position.x, transform.position.y) + offsetPosition + input;
+    
+                    _animator.SetFloat("Horizontal", input.x);
+                    _animator.SetFloat("Vertical", input.y);
+    
+                    if (!Physics2D.OverlapCircle(puntoEvaluar, circleRadius, obstacles))
                     {
-                        case LookAt.Down:
-                            bulletAux.GetComponent<Bullet>().direction = new Vector2(0, -1);
-                            break;
-                        case LookAt.Up:
-                            bulletAux.GetComponent<Bullet>().direction = new Vector2(0, 1);
-                            break;
-                        case LookAt.Right:
-                            bulletAux.GetComponent<Bullet>().direction = new Vector2(1, 0);
-                            break;
-                        case LookAt.Left:
-                            bulletAux.GetComponent<Bullet>().direction = new Vector2(-1, 0);
-                            break;
-
+                        _animator.SetBool("Move", true);
+                        Moving = true;
+                        gotoPosition += input;
                     }
-
-                    bulletDamage = originalDamage;
-
-                    StartCoroutine(BulletTime());
+                    
+                    
+                }
+    
+                if (CanShot)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
+                    {
+                        CanShot = false;
+                        var bulletAux = Instantiate(bullet, transform.position, Quaternion.identity);
+                        bulletAux.GetComponent<Bullet>().Player = gameObject;
+                        bulletAux.GetComponent<Bullet>()._Damage = bulletDamage;
+    
+                        switch (lookAt)
+                        {
+                            case LookAt.Down:
+                                bulletAux.GetComponent<Bullet>().direction = new Vector2(0, -1);
+                                break;
+                            case LookAt.Up:
+                                bulletAux.GetComponent<Bullet>().direction = new Vector2(0, 1);
+                                break;
+                            case LookAt.Right:
+                                bulletAux.GetComponent<Bullet>().direction = new Vector2(1, 0);
+                                break;
+                            case LookAt.Left:
+                                bulletAux.GetComponent<Bullet>().direction = new Vector2(-1, 0);
+                                break;
+    
+                        }
+    
+                        bulletDamage = originalDamage;
+    
+                        StartCoroutine(BulletTime());
+                    }
                 }
             }
-        }
-
-        if (UltiCharge)
-        {
-            if (Input.GetKey(KeyCode.Space))
+    
+            if (UltiCharge)
             {
-                UseUlti = true;
-                UltiAttack();
-                UltiCharge = false;
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    UseUlti = true;
+                    UltiAttack();
+                    UltiCharge = false;
+                }
             }
         }
     }
+        
 
     IEnumerator BulletTime()
     {
@@ -364,10 +379,15 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            life = Mathf.Clamp(life - _damage, 0, 5);
+            actualLife = Mathf.Clamp(actualLife - _damage, 0, 5);
         }
         
-        lifeBar.value = life;
+        lifeBar.value = actualLife;
+
+        if (actualLife <= 0)
+        {
+            StartCoroutine(PlayerRespawn());
+        }
     }
 
     private void HealFunction()
@@ -378,11 +398,11 @@ public class PlayerController : MonoBehaviour
         {
             if (otherplayer.GetComponent<PlayerController>().myTeam == myTeam)
             {
-                otherplayer.GetComponent<PlayerController>().life = Mathf.Clamp(0, 5,life+1);;
+                otherplayer.GetComponent<PlayerController>().actualLife = Mathf.Clamp(0, 5,actualLife+1);;
             }
         }
         
-        lifeBar.value = life;
+        lifeBar.value = actualLife;
     }
 
     private void PutUltiTrap()
@@ -422,6 +442,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator TrapEffect(GameObject trap)
     {
         canMove = false;
+        actualLife = totalLife;
 
         yield return new WaitForSeconds(1f);
 
@@ -431,6 +452,35 @@ public class PlayerController : MonoBehaviour
             Destroy(trap);
         }
         
+    }
+    
+    private IEnumerator PlayerRespawn()
+    {
+        isAlive = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+
+        transform.GetChild(0).GetComponent<Canvas>().enabled = false;
+        
+        gotoPosition = initialPos;
+        transform.position = initialPos;
+
+        lookAt = LookAt.Down;
+        _animator.SetFloat("LookAt", 0);
+        
+
+        yield return new WaitForSeconds(timeToRespawn);
+
+        transform.GetChild(0).GetComponent<Canvas>().enabled = true;
+        
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
+
+        actualLife = totalLife;
+        lifeBar.value = actualLife;
+        
+        isAlive = true;
+
     }
 
     private IEnumerator UltiTank()
