@@ -184,7 +184,7 @@ public class ServerHandler : MonoBehaviour
 
         // Avisamos al jugador de su equipo
         Utilidades.Jugadores[id].equipo = num;
-        SendToClient(id,"Eq_"+num);
+        SendToClient(id,"Eq_"+num+","+id);
         // Avisamos a todos del nuevo jugador (excepto a este)
         SendToAllExcept("Jug_"+JsonUtility.ToJson(Utilidades.Jugadores[id]),id);
     }
@@ -210,6 +210,7 @@ public class ServerHandler : MonoBehaviour
     // Pone el personaje escogido al 
     void PonerPersonaje(int id, int pers){
         Utilidades.Jugadores[id].personaje = pers;
+        // SendToAllExcept("Personaje_"+pers+","+id,id);
         Debug.Log(id+" "+pers);
         
         nEscogidos++;
@@ -242,5 +243,9 @@ public class ServerHandler : MonoBehaviour
         idInput = id;
         LlegaInputEvent.Invoke();
         SendToAll("Input_"+TipoInput+","+args[1]+","+id);
+    }
+
+    public void EnviarPersonaje(int id, int personaje){
+        SendToAll("Personaje_"+id+","+personaje);
     }
 }

@@ -14,6 +14,9 @@ public class MapaClient : MonoBehaviour
     public GameObject Cargando;
 
     bool Moviendose = false;
+    public bool BanderaAgarrada = false;
+    bool BanderaSpawneada = false;
+    Vector3 posBandera;
 
     public PlayerControllerClient[] players;
 
@@ -42,10 +45,19 @@ public class MapaClient : MonoBehaviour
     }
 
     /** --------------------------------------------------- **/
-
+    public void SpawnearBandera(Vector3 pos){
+        PonerTile(pos,tiles["Bandera"],Objetos);
+        BanderaSpawneada = true;
+        posBandera = pos;
+    }
+    public bool EsBandera(Vector3 pos){
+        return ObtTile(pos,Objetos)==tiles["Bandera"];
+    }
     void RecibirTile(){
-        if(ch.tileRecibido!="")
+        if(ch.tileRecibido!=""){
             PonerTile(ch.tilePos,tiles[ch.tileRecibido],Obstaculos);
+            if(ch.tileRecibido=="Bandera") BanderaSpawneada = true;
+        }
         else
             EliminarTile(ch.tilePos,Obstaculos);
     }  
@@ -101,24 +113,37 @@ public class MapaClient : MonoBehaviour
         }
     }
 
+    void LlegaPj(){
+        players[ch.idPj].CambiarPersonaje(ch.Pj);
+    }
+
     void Awake()
     {
         var g = GameObject.FindWithTag("Handler");
         ch = g.GetComponent<ClientHandler>();
 
+        int i = 1;
         foreach(PlayerControllerClient p in players){
+            if(i>Utilidades.Jugadores.Count) break;
             p.mapa = this;
+            // p.CambiarPersonaje((PlayerControllerClient.ClassType)Utilidades.Jugadores[i].personaje);
+            i++;
+        }
+        if(Utilidades.Jugadores.Count==3) players[2].gameObject.SetActive(true);
+        else if(Utilidades.Jugadores.Count==4){
+            players[2].gameObject.SetActive(true);
+            players[3].gameObject.SetActive(true);
         }
 
         ch.RecibirTile.AddListener(RecibirTile);
         ch.MostrarMapaEvent.AddListener(MostrarMapa);
         ch.LlegaInputEvent.AddListener(LlegaInput);
+        ch.LlegaPjEvent.AddListener(LlegaPj);
 
         Random.InitState(System.DateTime.Now.Millisecond);
         tiles = new Dictionary<string, Tile>();
         foreach(Tile t in tilesArray){
             tiles.Add(t.name,t);
-            Debug.Log(t.name);
         }
         // SpawnearCajas(maxCajas);
     }

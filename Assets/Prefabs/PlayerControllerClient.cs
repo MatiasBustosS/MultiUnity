@@ -386,13 +386,13 @@ public class PlayerControllerClient : MonoBehaviour
         
         Vector2 putTrap = new Vector2(transform.position.x, transform.position.y) + offsetPosition + look;
 
-        // if (!Physics2D.OverlapCircle(putTrap, circleRadius, obstacles) && mapa.ObtTile(putTrap, mapa.Obstaculos)==null)
-        // {
-        //     Debug.Log("Trampa Colocada");
-        //     var _trap = Instantiate(trap, putTrap, Quaternion.identity);
-        //     _trap.GetComponent<TrapController>().Player = gameObject;
-        //     _trap.GetComponent<TrapController>()._Damage = trapDamage;
-        // }
+        if (!Physics2D.OverlapCircle(putTrap, circleRadius, obstacles) && mapa.ObtTile(putTrap, mapa.Obstaculos)==null)
+        {
+            Debug.Log("Trampa Colocada");
+            var _trap = Instantiate(trap, putTrap, Quaternion.identity);
+            _trap.GetComponent<TrapController>().Player = gameObject;
+            _trap.GetComponent<TrapController>()._Damage = trapDamage;
+        }
     }
 
     public IEnumerator TrapEffect(GameObject trap)
@@ -420,19 +420,17 @@ public class PlayerControllerClient : MonoBehaviour
     }
 
     public void UsarUlti(){
-        if (UltiCharge)
-        {
+        
             
             UseUlti = true;
             UltiAttack();
             UltiCharge = false;
             
-        }
+        
     }
 
     public void Atacar(){
-        if (canMove && CanShot)
-        {
+    
             
             CanShot = false;
             var bulletAux = Instantiate(bullet, transform.position, Quaternion.identity);
@@ -461,20 +459,39 @@ public class PlayerControllerClient : MonoBehaviour
 
             StartCoroutine(BulletTime());
             
-        }
+        
     }
 
     public void Coger(){
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-        // if(mapa.EsBandera(pos) && !tieneBandera){
-        //     tieneBandera = true;
-        //     mapa.EliminarTile(pos,mapa.Objetos);
-        //     mapa.BanderaAgarrada = true;
-        // }else if(tieneBandera){
-        //     tieneBandera = false;
-        //     mapa.SpawnearBandera(pos);
-        //     mapa.BanderaAgarrada = false;
-        // }
+        if(mapa.EsBandera(pos) && !tieneBandera){
+            tieneBandera = true;
+            mapa.EliminarTile(pos,mapa.Objetos);
+            mapa.BanderaAgarrada = true;
+        }else if(tieneBandera){
+            tieneBandera = false;
+            mapa.SpawnearBandera(pos);
+            mapa.BanderaAgarrada = false;
+        }
+    }
+
+    public void CambiarPersonaje(ClassType c){
+        switch (c)
+        {
+            // SETEAR SPRITES Y ANIMACIONES DEPENDIENDO EL ROL
+            case ClassType.Healer:
+                _animator.SetInteger("Character",1);
+                break;
+            case ClassType.Damage:
+                _animator.SetInteger("Character",2);
+                break;
+            case ClassType.Tank:
+                _animator.SetInteger("Character",3);
+                break;
+            case ClassType.Support:
+                _animator.SetInteger("Character",4);
+                break;
+        }
     }
 
     private void OnDrawGizmos()

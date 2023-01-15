@@ -15,6 +15,7 @@ public class ClientHandler : MonoBehaviour
     public int personaje = -1;
 
     public Dictionary<int,Jugador> Jugadores = new Dictionary<int, Jugador>();
+    public Dictionary<int,PlayerControllerClient.ClassType> Personajes = new Dictionary<int, PlayerControllerClient.ClassType>();
     int ultimo = -1;
     public int nombreCamb = -1;
     public int prep = -1;
@@ -36,10 +37,14 @@ public class ClientHandler : MonoBehaviour
     public Vector3 tilePos;
     public UnityEvent MostrarMapaEvent;
     public UnityEvent LlegaInputEvent;
+    public UnityEvent LlegaPjEvent;
 
     public int idInput;
     public string TipoInput;
     public Vector3 InputVec3;
+
+    public int idPj;
+    public PlayerControllerClient.ClassType Pj;
 
     private void Start()
     {
@@ -53,6 +58,7 @@ public class ClientHandler : MonoBehaviour
         RecibirTile = new UnityEvent();
         MostrarMapaEvent = new UnityEvent();
         LlegaInputEvent = new UnityEvent();
+        LlegaPjEvent = new UnityEvent();
 
     }
 
@@ -110,6 +116,10 @@ public class ClientHandler : MonoBehaviour
                 LlegaInput(args2);
                 break;
 
+            case "Personaje":
+                LlegaPj(args2);
+                break;
+
             case "Tile":
                 LlegaTile(args2);
                 break;
@@ -123,7 +133,8 @@ public class ClientHandler : MonoBehaviour
                 break;
 
             case "Eq": // Avisa del equipo en el que estamos
-                PonerseEquipo(int.Parse(args[1])); // Nos ponemos en el equipo que toca
+                PonerseEquipo(int.Parse(args2[0])); // Nos ponemos en el equipo que toca
+                idJuego = int.Parse(args2[1]);
                 break;
 
             case "Comp": // Nos dice quién es nuestro compañero id,nombre
@@ -229,5 +240,11 @@ public class ClientHandler : MonoBehaviour
         InputVec3 = Utilidades.FormatString(args[1]);
         idInput = int.Parse(args[2]);
         LlegaInputEvent.Invoke();
+    }
+
+    void LlegaPj(string[] args){
+        idPj = int.Parse(args[0]);
+        Pj = (PlayerControllerClient.ClassType)int.Parse(args[1]);
+        LlegaPjEvent.Invoke();
     }
 }

@@ -154,6 +154,14 @@ public class MapaServer : MonoBehaviour
         
     }
 
+    void EnviarPersonajes(){
+        int i = 0;
+        foreach(Jugador j in Utilidades.Jugadores.Values){
+            sh.EnviarPersonaje(i,j.personaje);
+            i++;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -175,6 +183,7 @@ public class MapaServer : MonoBehaviour
         sh.LlegaInputEvent.AddListener(LlegaInput);
         Random.InitState(System.DateTime.Now.Millisecond);
         SpawnearCajas(maxCajas);
+        EnviarPersonajes();
         EnviarOK();
     }
 

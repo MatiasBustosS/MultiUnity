@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4091041546674820732}
   - component: {fileID: 6750542992224612459}
   - component: {fileID: 1105011627}
-  - component: {fileID: 8036178633803745228}
   m_Layer: 3
   m_Name: PlayerClient
   m_TagString: Player
@@ -35,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4057468646384848362
 SpriteRenderer:
@@ -191,38 +190,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8036178633803745228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102131891143323106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a081ea17525c047ae1856f5d32b550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerID: 0
-  myTeam: 0
-  canMove: 1
-  gotoPosition: {x: 0, y: 0}
-  speed: 5
-  life: 5
-  isAlive: 0
-  bulletDamage: 0
-  obstacles:
-    serializedVersion: 2
-    m_Bits: 200
-  Moving: 0
-  offsetPosition: {x: 0, y: 0}
-  DistanceToMove: 1.5825
-  circleRadius: 0.65
-  lookAt: 1
-  bullet: {fileID: 3082111730956987286, guid: 516919056d14d4248a87f784f1e440b3, type: 3}
-  trap: {fileID: 3940889608574997821, guid: 2a1cc6ab1d99cef4cbad1184a3e86b7d, type: 3}
-  trapDamage: 0
-  UltiCharge: 0
-  myClass: 0
-  mapa: {fileID: 0}
-  tieneBandera: 0
