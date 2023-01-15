@@ -117,13 +117,23 @@ public class MapaServer : MonoBehaviour
             TileBase t = ObtTile(posBandera,Fondo);
             if(t.name=="Azul"){
                 puntosAzul++;
-
+                Debug.Log("A");
                 EliminarTile(posBandera,Objetos);
+                BanderaSpawneada = false;
+                BanderaAgarrada = false;
+
+                if(puntosAzul==3) sh.Victoria(0);
+
                 SpawnearCajas(maxCajas-nCajas);
             }else if(t.name=="Rojo"){
                 puntosRojo++;
 
                 EliminarTile(posBandera,Objetos);
+                BanderaSpawneada = false;
+                BanderaAgarrada = false;
+
+                if(puntosRojo==3) sh.Victoria(1);
+
                 SpawnearCajas(maxCajas-nCajas);
             }  
         }
@@ -163,7 +173,7 @@ public class MapaServer : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         int i = 1;
         foreach(PlayerControllerServer p in players){
@@ -171,6 +181,7 @@ public class MapaServer : MonoBehaviour
             p.mapa = this;
             Debug.Log(Utilidades.Jugadores[i].nombre);
             p.CambiarPersonaje((PlayerControllerServer.ClassType)Utilidades.Jugadores[i].personaje);
+            p.playerID = i;
             i++;
         }
         if(Utilidades.Jugadores.Count==3) players[2].gameObject.SetActive(true);

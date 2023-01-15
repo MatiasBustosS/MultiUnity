@@ -11,7 +11,10 @@ public class MapaClient : MonoBehaviour
     // public Tilemap Fondo;
     public Tile[] tilesArray;
     Dictionary<string,Tile> tiles;
-    public GameObject Cargando;
+    public GameObject VictoriaAzul;
+    public GameObject VictoriaRoja;
+    public GameObject Trampa;
+    GameObject TrampaGO;
 
     bool Moviendose = false;
     public bool BanderaAgarrada = false;
@@ -33,7 +36,7 @@ public class MapaClient : MonoBehaviour
 
     public void PonerTile(Vector3 pos, Tile tile, Tilemap tilemap){
         tilemap.SetTile(CalcPos(pos),tile);
-        
+        Debug.Log(tilemap.name);
     }
 
     public void EliminarTile(Vector3 pos, Tilemap tilemap){
@@ -55,22 +58,28 @@ public class MapaClient : MonoBehaviour
     }
     void RecibirTile(){
         if(ch.tileRecibido!=""){
-            PonerTile(ch.tilePos,tiles[ch.tileRecibido],Obstaculos);
-            if(ch.tileRecibido=="Bandera") BanderaSpawneada = true;
+            if(ch.tileRecibido=="Bandera") SpawnearBandera(ch.tilePos);
+            else if(ch.tilemapRecibido=="Obstaculos")
+                PonerTile(ch.tilePos,tiles[ch.tileRecibido],Obstaculos);
+            else
+                PonerTile(ch.tilePos,tiles[ch.tileRecibido],Objetos);
         }
-        else
+        else if(ch.tilemapRecibido=="Obstaculos")
             EliminarTile(ch.tilePos,Obstaculos);
+        else
+            EliminarTile(ch.tilePos,Objetos);
+
     }  
 
     void MostrarMapa(){
-        Cargando.SetActive(false);
+        // Cargando.SetActive(false);
     }
 
     void GestionarInput(){
         if(Input.GetAxisRaw("Horizontal")!=0 && !Moviendose){
             ch.EnviarInput("Moverse",new Vector2(Input.GetAxisRaw("Horizontal"), 0));
             Moviendose = true;
-        }else if(Input.GetAxisRaw("Vertical")!=0){
+        }else if(Input.GetAxisRaw("Vertical")!=0 && !Moviendose){
             ch.EnviarInput("Moverse",new Vector2(0, Input.GetAxisRaw("Vertical")));
             Moviendose = true;
         }else if(Moviendose){
@@ -84,7 +93,7 @@ public class MapaClient : MonoBehaviour
             ch.EnviarInput("Atacar", Vector2.zero);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R)){
             ch.EnviarInput("Ulti", Vector2.zero);
         }
 
@@ -107,30 +116,69 @@ public class MapaClient : MonoBehaviour
                 players[ch.idInput-1].UsarUlti();
                 break;
 
-            case "Coger":
-                players[ch.idInput-1].Coger();
-                break;
+            // case "Coger":
+            //     players[ch.idInput-1].Coger();
+            //     break;
         }
     }
 
     void LlegaPj(){
+        Debug.Log(ch.idPj);
+        Debug.Log(ch.Pj);
         players[ch.idPj].CambiarPersonaje(ch.Pj);
+        players[ch.idPj].CambiarNombre(ch.nombrePj);
+    }
+
+    void Final(){
+        if(ch.equipoGanador==0){
+            VictoriaAzul.SetActive(true);
+        }else{
+            VictoriaRoja.SetActive(true);
+
+        }
+    }
+
+    void LlegaPos(){
+        if(players[ch.idPos-1].transform.position != ch.nuevaPos){
+            players[ch.idPos-1].transform.position = ch.nuevaPos;
+            players[ch.idPos-1].Parar();
+        }
+    }
+
+    void LlegaBandera(){
+        players[ch.idBandera-1].Coger();
+    }
+
+    void LlegaTrampa(){
+        TrampaGO = Instantiate(Trampa,ch.posTrampa,Quaternion.identity);
+        Invoke("DestruirTrampa",4f);
+    }
+
+    void DestruirTrampa(){
+        if(TrampaGO) Destroy(TrampaGO);
+    }
+
+    void LlegaTrampaEfecto(){
+        players[ch.idEfecto].TrapEffect();
     }
 
     void Awake()
     {
+        VictoriaAzul.SetActive(false);
+        VictoriaRoja.SetActive(false);
         var g = GameObject.FindWithTag("Handler");
         ch = g.GetComponent<ClientHandler>();
 
         int i = 1;
         foreach(PlayerControllerClient p in players){
-            if(i>Utilidades.Jugadores.Count) break;
+            if(i>Utilidades.nJugadores) break;
             p.mapa = this;
+            p.playerID = i;
             // p.CambiarPersonaje((PlayerControllerClient.ClassType)Utilidades.Jugadores[i].personaje);
             i++;
         }
-        if(Utilidades.Jugadores.Count==3) players[2].gameObject.SetActive(true);
-        else if(Utilidades.Jugadores.Count==4){
+        if(Utilidades.nJugadores==3) players[2].gameObject.SetActive(true);
+        else if(Utilidades.nJugadores==4){
             players[2].gameObject.SetActive(true);
             players[3].gameObject.SetActive(true);
         }
@@ -139,6 +187,11 @@ public class MapaClient : MonoBehaviour
         ch.MostrarMapaEvent.AddListener(MostrarMapa);
         ch.LlegaInputEvent.AddListener(LlegaInput);
         ch.LlegaPjEvent.AddListener(LlegaPj);
+        ch.LlegaPosEvent.AddListener(LlegaPos);
+        ch.VictoriaEvent.AddListener(Final);
+        ch.LlegaBanderaEvent.AddListener(LlegaBandera);
+        ch.LlegaTrampaEvent.AddListener(LlegaTrampa);
+        ch.LlegaTrampaEfectoEvent.AddListener(LlegaTrampaEfecto);
 
         Random.InitState(System.DateTime.Now.Millisecond);
         tiles = new Dictionary<string, Tile>();
@@ -151,7 +204,7 @@ public class MapaClient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GestionarInput();
+        if(ch.equipoGanador==-1) GestionarInput();
         
     }
 }

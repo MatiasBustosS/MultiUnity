@@ -215,7 +215,7 @@ public class ServerHandler : MonoBehaviour
         
         nEscogidos++;
         if(nEscogidos==nJugadores){
-            SendToAll("Juego_");
+            SendToAll("Juego_"+nJugadores);
             JuegoEmpezado = true;
             SceneManager.LoadScene("MapaServer");
         }
@@ -246,6 +246,31 @@ public class ServerHandler : MonoBehaviour
     }
 
     public void EnviarPersonaje(int id, int personaje){
-        SendToAll("Personaje_"+id+","+personaje);
+        SendToAll("Personaje_"+id+","+personaje+","+Utilidades.Jugadores[id+1].nombre);
+    }
+
+    public void Damage(int id, float _damage){
+        SendToAll("Damage_"+id+","+_damage.ToString().Replace(",", "."));
+    }
+
+    public void Victoria(int equipo){
+        SendToAll("Victoria_"+equipo);
+        Application.Quit();
+    }
+
+    public void EnviarPos(int id, Vector3 pos){
+        SendToAll("Pos_"+id+","+Utilidades.FormatVector(pos));
+    }
+
+    public void Bandera(int id){
+        SendToAll("Bandera_"+id);
+    }
+
+    public void Trampa(Vector3 pos){
+        SendToAll("Trampa_"+Utilidades.FormatVector(pos));
+    }
+
+    public void EfectoTrampa(int id){
+        SendToAll("Efecto_"+id);
     }
 }

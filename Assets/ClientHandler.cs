@@ -38,6 +38,12 @@ public class ClientHandler : MonoBehaviour
     public UnityEvent MostrarMapaEvent;
     public UnityEvent LlegaInputEvent;
     public UnityEvent LlegaPjEvent;
+    public UnityEvent LlegaDamageEvent;
+    public UnityEvent VictoriaEvent;
+    public UnityEvent LlegaPosEvent;
+    public UnityEvent LlegaBanderaEvent;
+    public UnityEvent LlegaTrampaEvent;
+    public UnityEvent LlegaTrampaEfectoEvent;
 
     public int idInput;
     public string TipoInput;
@@ -45,6 +51,19 @@ public class ClientHandler : MonoBehaviour
 
     public int idPj;
     public PlayerControllerClient.ClassType Pj;
+    public string nombrePj;
+
+    public int idPjDamage;
+    public float Damage;
+
+    public int equipoGanador = -1;
+
+    public int idPos;
+    public Vector3 nuevaPos;
+    public Vector3 posTrampa;
+
+    public int idBandera;
+    public int idEfecto;
 
     private void Start()
     {
@@ -59,6 +78,12 @@ public class ClientHandler : MonoBehaviour
         MostrarMapaEvent = new UnityEvent();
         LlegaInputEvent = new UnityEvent();
         LlegaPjEvent = new UnityEvent();
+        LlegaDamageEvent = new UnityEvent();
+        LlegaPosEvent = new UnityEvent();
+        LlegaBanderaEvent = new UnityEvent();
+        LlegaTrampaEvent = new UnityEvent();
+        LlegaTrampaEfectoEvent = new UnityEvent();
+        VictoriaEvent = new UnityEvent();
 
     }
 
@@ -80,7 +105,6 @@ public class ClientHandler : MonoBehaviour
     {
         // Le decimos al servidor como nos llamamos
         SendToServer("Nom_"+nombre);
-        
     }
 
     private void DisconnectedFromServer()
@@ -116,6 +140,34 @@ public class ClientHandler : MonoBehaviour
                 LlegaInput(args2);
                 break;
 
+            case "Pos":
+                LlegaPos(args2);
+                break;
+
+            case "Bandera":
+                idBandera = int.Parse(args2[0]);
+                LlegaBanderaEvent.Invoke();
+                break;
+
+            case "Damage":
+                LlegaDamage(args2);
+                break;
+
+            case "Efecto":
+                idEfecto = int.Parse(args2[0]);
+                LlegaTrampaEfectoEvent.Invoke();
+                break;
+
+            case "Trampa":
+                posTrampa = Utilidades.FormatString(args2[0]);
+                LlegaTrampaEvent.Invoke();
+                break;
+
+            case "Victoria":
+                equipoGanador = int.Parse(args2[0]);
+                VictoriaEvent.Invoke();
+                break;
+
             case "Personaje":
                 LlegaPj(args2);
                 break;
@@ -130,11 +182,12 @@ public class ClientHandler : MonoBehaviour
 
             case "Juego":
                 EmpezarJuego();
+                Utilidades.nJugadores = int.Parse(args2[0]);
                 break;
 
             case "Eq": // Avisa del equipo en el que estamos
-                PonerseEquipo(int.Parse(args2[0])); // Nos ponemos en el equipo que toca
                 idJuego = int.Parse(args2[1]);
+                PonerseEquipo(int.Parse(args2[0])); // Nos ponemos en el equipo que toca
                 break;
 
             case "Comp": // Nos dice quién es nuestro compañero id,nombre
@@ -245,6 +298,19 @@ public class ClientHandler : MonoBehaviour
     void LlegaPj(string[] args){
         idPj = int.Parse(args[0]);
         Pj = (PlayerControllerClient.ClassType)int.Parse(args[1]);
+        nombrePj = args[2];
         LlegaPjEvent.Invoke();
+    }
+
+    void LlegaDamage(string[] args){
+        idPjDamage = int.Parse(args[0]);
+        Damage = float.Parse(args[1].ToString().Replace(".", ","));
+        LlegaDamageEvent.Invoke();
+    }
+
+    void LlegaPos(string[] args){
+        idPos = int.Parse(args[0]);
+        nuevaPos = Utilidades.FormatString(args[1]);
+        LlegaPosEvent.Invoke();
     }
 }

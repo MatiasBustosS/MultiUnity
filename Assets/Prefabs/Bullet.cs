@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     [HideInInspector] public float _Damage;
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public GameObject Player;
-    [HideInInspector] public MapaServer Mapa;
+    [HideInInspector] public MapaServer Mapa = null;
     
     // Start is called before the first frame update
     void Start()
@@ -32,11 +32,12 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject == Player) return;
         if (collision.gameObject.CompareTag("Player") && collision.gameObject != Player)
         {
-            collision.GetComponent<PlayerControllerServer>().Damage(_Damage);
+            PlayerControllerServer p = collision.GetComponent<PlayerControllerServer>();
+            if(p) p.Damage(_Damage);
         }
         else if(collision.gameObject.CompareTag("Obstaculo")){
             // Debug.Log(transform.position+direction);
-            Mapa.DestruirCaja(transform.position+new Vector3(direction.x,direction.y,0));
+            if(Mapa) Mapa.DestruirCaja(transform.position+new Vector3(direction.x,direction.y,0));
         }
         Destroy(gameObject);
     }

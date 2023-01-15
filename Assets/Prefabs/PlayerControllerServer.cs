@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine.Serialization;
 
 #if UNITY_EDITOR
@@ -13,6 +15,10 @@ using UnityEditor;
 public class PlayerControllerServer : MonoBehaviour
 {
     [HideInInspector] public int playerID;
+    public Slider lifeBar;
+    public TextMeshProUGUI nameTag;
+
+    public String playerName;
     public enum Team
     {
         team_1,
@@ -22,9 +28,12 @@ public class PlayerControllerServer : MonoBehaviour
 
     [SerializeField] private bool canMove = true;
 
+    [SerializeField] private float timeToRespawn = 1;
+
     [HideInInspector] public Vector2 gotoPosition;
     [SerializeField] private float speed = 5;
-    [SerializeField] private float life = 5;
+    [SerializeField] private float totalLife;
+    private float actualLife;
     [HideInInspector] public bool isAlive;
     public float bulletDamage;
     private float originalDamage;
@@ -48,18 +57,19 @@ public class PlayerControllerServer : MonoBehaviour
 
     public LookAt lookAt;
 
-    private Animator _animator;
+    public Animator _animator = null;
 
 
     private bool CanShot =true;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject trap;
-    [SerializeField] private float trapDamage;
+    private float trapDamage = 1;
     
     
     [Header("Character")] 
     
     [SerializeField] private bool UltiCharge = false;
+    private Vector2 initialPos;
     private bool UseUlti = false;
     public enum ClassType
     {
@@ -78,6 +88,7 @@ public class PlayerControllerServer : MonoBehaviour
 
     public MapaServer mapa;
     public bool tieneBandera = false;
+    private ServerHandler sh;
     
     // VALORES PROPIOS DE LOS ROLES DE CADA PERSONAJES
     #region ChangeInspector
@@ -145,10 +156,20 @@ public class PlayerControllerServer : MonoBehaviour
 
     void Start()
     {
+        var g = GameObject.FindWithTag("Handler");
+        sh = g.GetComponent<ServerHandler>();
+        initialPos = transform.position;
         gotoPosition = transform.position;
-        _animator = GetComponent<Animator>();
+        // _animator = GetComponent<Animator>();
         originalDamage = bulletDamage;
         
+        isAlive = true;
+
+        totalLife = 5;
+        nameTag.text = playerName;
+        actualLife = totalLife;
+        lifeBar.value = actualLife;
+
         switch (myClass)
         {
             // SETEAR SPRITES Y ANIMACIONES DEPENDIENDO EL ROL
@@ -170,96 +191,106 @@ public class PlayerControllerServer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (input.y == 0)
-        {
-            input.x = axisHorizontal * DistanceToMove;
+        if((ClassType)Utilidades.Jugadores[playerID].personaje != myClass) CambiarPersonaje((ClassType)Utilidades.Jugadores[playerID].personaje);
+        if(isAlive){
             
-            if (!Moving)
+            if(tieneBandera){
+                nameTag.color = Color.red;
+            }else{
+                nameTag.color = Color.white;
+            }
+
+            if (input.y == 0)
             {
-                _animator.SetFloat("Horizontal", input.x);
-                _animator.SetFloat("Vertical", 0);
+                input.x = axisHorizontal * DistanceToMove;
                 
-            }
-            
-            if (input.x < 0)
-            {
-                lookAt = LookAt.Left;
-                _animator.SetFloat("LookAt", 1);
-
-            }
-
-            if (input.x > 0)
-            {
-                lookAt = LookAt.Right;
-                _animator.SetFloat("LookAt", 2);
-
-            }
-
-        }
-
-        if (input.x == 0)
-        {
-            input.y = axisVertical * DistanceToMove;
-
-            if (!Moving)
-            {
-                _animator.SetFloat("Vertical", input.y);
-                _animator.SetFloat("Horizontal", 0);
-            }
-            
-
-            if (input.y < 0)
-            {
-                lookAt = LookAt.Down;
-                _animator.SetFloat("LookAt", 0);
-
-            }
-            if (input.y > 0)
-            {
-                lookAt = LookAt.Up;
-                _animator.SetFloat("LookAt", 3);
-
-            }
-        }
-
-        if (Moving)
-        {
-            transform.position = Vector3.MoveTowards(transform.position,
-                new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, gotoPosition) == 0)
-            {
-                Moving = false;
-                _animator.SetBool("Move", false);
-            }
-        }
-
-        if(canMove){
-        
-            if ((input.x != 0 || input.y != 0) && !Moving)
-            {
-                Vector2 puntoEvaluar = new Vector2(transform.position.x, transform.position.y) + offsetPosition + input;
-
-                _animator.SetFloat("Horizontal", input.x);
-                _animator.SetFloat("Vertical", input.y);
-
-                if (!Physics2D.OverlapCircle(puntoEvaluar, circleRadius, obstacles) && mapa.ObtTile(puntoEvaluar,mapa.Obstaculos)==null)
+                if (!Moving)
                 {
-                    _animator.SetBool("Move", true);
-                    Moving = true;
-                    gotoPosition += input;
-
-                    // Si hay ulti, se pone
-                    if(mapa.EsUlti(puntoEvaluar)){
-                        UltiCharge = true;
-                        mapa.EliminarTile(puntoEvaluar,mapa.Objetos);
-                    }
+                    _animator.SetFloat("Horizontal", input.x);
+                    _animator.SetFloat("Vertical", 0);
+                    
                 }
-                // else{
-                //     Moving = false;
-                //     Debug.Log("guachin te encontraste con algo");
-                // }
+                
+                if (input.x < 0)
+                {
+                    lookAt = LookAt.Left;
+                    _animator.SetFloat("LookAt", 1);
+
+                }
+
+                if (input.x > 0)
+                {
+                    lookAt = LookAt.Right;
+                    _animator.SetFloat("LookAt", 2);
+
+                }
+
+            }
+
+            if (input.x == 0)
+            {
+                input.y = axisVertical * DistanceToMove;
+
+                if (!Moving)
+                {
+                    _animator.SetFloat("Vertical", input.y);
+                    _animator.SetFloat("Horizontal", 0);
+                }
+                
+
+                if (input.y < 0)
+                {
+                    lookAt = LookAt.Down;
+                    _animator.SetFloat("LookAt", 0);
+
+                }
+                if (input.y > 0)
+                {
+                    lookAt = LookAt.Up;
+                    _animator.SetFloat("LookAt", 3);
+
+                }
+            }
+
+            if (Moving)
+            {
+                transform.position = Vector3.MoveTowards(transform.position,
+                    new Vector3(gotoPosition.x, gotoPosition.y, transform.position.z), speed * Time.deltaTime);
+
+                if (Vector2.Distance(transform.position, gotoPosition) == 0)
+                {
+                    Moving = false;
+                    _animator.SetBool("Move", false);
+                    sh.EnviarPos(playerID,transform.position);
+                }
+            }
+
+            if(canMove){
+            
+                if ((input.x != 0 || input.y != 0) && !Moving)
+                {
+                    Vector2 puntoEvaluar = new Vector2(transform.position.x, transform.position.y) + offsetPosition + input;
+
+                    _animator.SetFloat("Horizontal", input.x);
+                    _animator.SetFloat("Vertical", input.y);
+
+                    if (!Physics2D.OverlapCircle(puntoEvaluar, circleRadius, obstacles) && mapa.ObtTile(puntoEvaluar,mapa.Obstaculos)==null)
+                    {
+                        _animator.SetBool("Move", true);
+                        Moving = true;
+                        gotoPosition += input;
+
+                        // Si hay ulti, se pone
+                        if(mapa.EsUlti(puntoEvaluar)){
+                            UltiCharge = true;
+                            mapa.EliminarTile(puntoEvaluar,mapa.Objetos);
+                        }
+                    }
+                    // else{
+                    //     Moving = false;
+                    //     Debug.Log("guachin te encontraste con algo");
+                    // }
+                }
             }
         }
             // if (CanShot)
@@ -347,8 +378,17 @@ public class PlayerControllerServer : MonoBehaviour
         }
         else
         {
-            life = Mathf.Clamp(life - _damage, 0, 5);
+            actualLife = Mathf.Clamp(actualLife - _damage, 0, 5);
         }
+        
+        lifeBar.value = actualLife;
+
+        if (actualLife <= 0)
+        {
+            StartCoroutine(PlayerRespawn());
+        }
+
+        sh.Damage(playerID,_damage);
     }
 
     private void HealFunction()
@@ -356,12 +396,15 @@ public class PlayerControllerServer : MonoBehaviour
         var players = GameObject.FindGameObjectsWithTag("Player");
                 
         foreach (var otherplayer in players)
-        {
-            if (otherplayer.GetComponent<PlayerControllerServer>().myTeam == myTeam)
+        {   PlayerControllerServer p = otherplayer.GetComponent<PlayerControllerServer>();
+            if (p.myTeam == myTeam)
             {
-                otherplayer.GetComponent<PlayerControllerServer>().life = Mathf.Clamp(0, 5,life+1);;
+                p.actualLife = Mathf.Clamp(0, 5,actualLife+1);;
+                p.lifeBar.value = p.actualLife;
             }
         }
+        
+        lifeBar.value = actualLife;
     }
 
     private void PutUltiTrap()
@@ -386,22 +429,30 @@ public class PlayerControllerServer : MonoBehaviour
         
         Vector2 putTrap = new Vector2(transform.position.x, transform.position.y) + offsetPosition + look;
 
-        if (!Physics2D.OverlapCircle(putTrap, circleRadius, obstacles) && mapa.ObtTile(putTrap, mapa.Obstaculos)==null)
+        if (mapa.ObtTile(putTrap, mapa.Obstaculos)==null)
         {
             Debug.Log("Trampa Colocada");
             var _trap = Instantiate(trap, putTrap, Quaternion.identity);
             _trap.GetComponent<TrapController>().Player = gameObject;
             _trap.GetComponent<TrapController>()._Damage = trapDamage;
+            sh.Trampa(putTrap);
+        }else{
+            Debug.Log("El tile de la trampa: "+mapa.ObtTile(putTrap, mapa.Obstaculos));
+            Debug.Log("Hay algo? "+Physics2D.OverlapCircle(putTrap, circleRadius, obstacles));
         }
     }
 
     public IEnumerator TrapEffect(GameObject trap)
     {
         canMove = false;
+        sh.EfectoTrampa(playerID);
+        // actualLife = totalLife;
         
         yield return new WaitForSeconds(2f);
 
         canMove = true;
+        // sh.EfectoTrampa(playerID);
+
         if (trap)
         {
             Destroy(trap);
@@ -420,7 +471,7 @@ public class PlayerControllerServer : MonoBehaviour
     }
 
     public void UsarUlti(){
-        if (UltiCharge)
+        if (UltiCharge && isAlive)
         {
             
             UseUlti = true;
@@ -431,7 +482,7 @@ public class PlayerControllerServer : MonoBehaviour
     }
 
     public void Atacar(){
-        if (canMove && CanShot)
+        if (canMove && CanShot && isAlive)
         {
             
             CanShot = false;
@@ -470,14 +521,19 @@ public class PlayerControllerServer : MonoBehaviour
             tieneBandera = true;
             mapa.EliminarTile(pos,mapa.Objetos);
             mapa.BanderaAgarrada = true;
+            sh.Bandera(playerID);
         }else if(tieneBandera){
             tieneBandera = false;
             mapa.SpawnearBandera(pos);
             mapa.BanderaAgarrada = false;
+            sh.Bandera(playerID);
+
         }
     }
 
     public void CambiarPersonaje(ClassType c){
+        Debug.Log(_animator.name);
+        myClass = c;
         switch (c)
         {
             // SETEAR SPRITES Y ANIMACIONES DEPENDIENDO EL ROL
@@ -494,6 +550,36 @@ public class PlayerControllerServer : MonoBehaviour
                 _animator.SetInteger("Character",4);
                 break;
         }
+        _animator.SetBool("Move", true);
+    }
+
+    private IEnumerator PlayerRespawn()
+    {
+        isAlive = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+
+        transform.GetChild(0).GetComponent<Canvas>().enabled = false;
+        
+        gotoPosition = initialPos;
+        transform.position = initialPos;
+
+        lookAt = LookAt.Down;
+        _animator.SetFloat("LookAt", 0);
+        
+
+        yield return new WaitForSeconds(timeToRespawn);
+
+        transform.GetChild(0).GetComponent<Canvas>().enabled = true;
+        
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
+
+        actualLife = totalLife;
+        lifeBar.value = actualLife;
+        
+        isAlive = true;
+
     }
 
     private void OnDrawGizmos()

@@ -13,4 +13,6 @@ public static class Utilidades{
     }
 
     public static Dictionary<int,Jugador> Jugadores = new Dictionary<int, Jugador>();
+    public static int nJugadores = 0;
+    // public static Dictionary<int,string> nombres = new Dictionary<int, string>();
 }
