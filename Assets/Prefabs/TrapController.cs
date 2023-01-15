@@ -17,10 +17,11 @@ public class TrapController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && collision.gameObject != Player)
         {
-            if (collision.gameObject.GetComponent<PlayerControllerServer>().myTeam != Player.GetComponent<PlayerControllerServer>().myTeam)
+            PlayerControllerServer p =collision.GetComponent<PlayerControllerServer>();
+            if (p && p.myTeam != Player.GetComponent<PlayerControllerServer>().myTeam)
             {
-                collision.GetComponent<PlayerControllerServer>().Damage(_Damage);
-                StartCoroutine(collision.GetComponent<PlayerControllerServer>().TrapEffect(gameObject));
+                p.Damage(_Damage);
+                StartCoroutine(p.TrapEffect(gameObject));
             }
         }
     }
