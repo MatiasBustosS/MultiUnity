@@ -159,7 +159,7 @@ public class MapaClient : MonoBehaviour
     }
 
     void LlegaTrampaEfecto(){
-        players[ch.idEfecto].TrapEffect();
+        players[ch.idEfecto-1].TrapEffect();
     }
 
     void Awake()
